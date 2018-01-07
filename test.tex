@@ -1,0 +1,2084 @@
+%LaTeX2e
+\documentclass[11pt]{article}
+\usepackage{amsfonts,amssymb}
+\textheight 9in
+\textwidth 6.2in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\oddsidemargin 0in
+\newcounter{rmenum}
+\newcounter{Rmenum}
+\newcounter{alenum}
+\newcounter{Alenum}
+\newcounter{arenum}
+\newcounter{arbenum}
+\newcounter{arbdashenum}
+\newenvironment{rmenumerate}{\begin{list}{(\roman{rmenum})}%
+{\usecounter{rmenum}}}{\end{list}}
+\newenvironment{Rmenumerate}{\begin{list}{(\Roman{Rmenum})}%
+{\usecounter{Rmenum}}}{\end{list}}
+\newenvironment{alenumerate}{\begin{list}{(\alph{alenum})}%
+{\usecounter{alenum}}}{\end{list}}
+\newenvironment{Alenumerate}{\begin{list}{(\Alph{Alenum})}%
+{\usecounter{Alenum}}}{\end{list}}
+\newenvironment{arenumerate}{\begin{list}{{\rm\arabic{arenum}}}%
+{\usecounter{arenum}}}{\end{list}}
+\newenvironment{arbenumerate}{\begin{list}{{\rm(\arabic{arbenum})}}%
+{\usecounter{arbenum}}}{\end{list}}
+\newenvironment{arbdashenumerate}{\begin{list}{{\rm(\arabic{arbdashenum})}$'$}%
+{\usecounter{arbdashenum}}}{\end{list}}
+
+\newenvironment{centre}{\begin{center}}{\end{center}}
+\newcommand{\eg}{e.g.\ }
+\newcommand{\ie}{i.e.\ }
+\newcommand{\etc}{{\em et cetera }}
+\newcommand{\sseq}{\subseteq}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\implies}{\;\;\Rightarrow\;\;}
+\newcommand{\And}{\;\;\&\;\;}
+\def\Bbb#1{\ensuremath{\mathbb{#1}}}
+\def\MakeBbb#1{%
+   \edef\tmp{%
+      \noexpand\def\csname#1\endcsname
+         {\noexpand\protect\csname p#1\endcsname}%
+      \noexpand\def\csname p#1\endcsname
+         {\noexpand\Bbb{#1}}%
+   }%
+   \tmp
+}
+\MakeBbb{C}
+\MakeBbb{F}
+\MakeBbb{N}
+\MakeBbb{Q}
+\MakeBbb{R}
+\MakeBbb{T}
+\MakeBbb{Z}
+
+\let\leq\undefined  \let\geq\undefined
+\DeclareMathSymbol{\leq}     {\mathrel}{AMSa}{"36}
+\DeclareMathSymbol{\geq}     {\mathrel}{AMSa}{"3E}
+\let\le\leq   \let\ge\geq
+  \let\mho\undefined            \let\sqsupset\undefined
+  \let\Join\undefined           \let\lhd\undefined
+  \let\Box\undefined            \let\unlhd\undefined
+  \let\Diamond\undefined        \let\rhd\undefined
+  \let\leadsto\undefined        \let\unrhd\undefined
+  \let\sqsubset\undefined
+
+  \DeclareMathSymbol\mho     {\mathord}{AMSb}{"66}
+  \DeclareMathSymbol\Box     {\mathord}{AMSa}{"03}
+  \let\square\Box
+  \DeclareMathSymbol\Diamond {\mathord}{AMSa}{"06}
+  \DeclareMathSymbol\leadsto {\mathrel}{AMSa}{"20}
+  \DeclareMathSymbol\sqsubset{\mathrel}{AMSa}{"40}
+  \DeclareMathSymbol\sqsupset{\mathrel}{AMSa}{"41}
+  \DeclareMathSymbol\lhd     {\mathrel}{AMSa}{"43}
+  \DeclareMathSymbol\unlhd   {\mathrel}{AMSa}{"45}
+  \DeclareMathSymbol\rhd     {\mathrel}{AMSa}{"42}
+  \DeclareMathSymbol\unrhd   {\mathrel}{AMSa}{"44}
+  \def\Join{\mathrel{{\rhd}\mkern-4mu{\lhd}}}
+
+
+\def\nra{\hbox{$~\rightarrow~\kern-1.4em\hbox{/}~\kern+0.4em$}}
+\def\sumprime_#1{\setbox0=\hbox{$\scriptstyle{#1}$}
+	 \setbox2=\hbox{$\displaystyle{\sum}$}
+	 \setbox4=\hbox{${}'\mathsurround=0pt$}
+	 \dimen0=.5\wd0 \advance\dimen0 by-.5\wd2
+	 \ifdim\dimen0>0pt
+	 \ifdim\dimen0>\wd \kern\wd4 \else\kern\dimen0\fi\fi
+  \mathop{{\sum}'}_{\kern-\wd4 #1}}
+\newcommand{\nin}{\not\in}
+\newcommand{\projtensor}{\hat{\otimes}}
+\newcommand{\sgnbar}{\overline{\mbox{sgn}}}
+\newcommand{\closure}[1]{\overline{#1}}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\mbox{\O}}
+\newcommand{\dw}{dw}
+\newcommand{\al}{\alpha}
+\newcommand{\bt}{\beta}
+\newcommand{\dl}{\delta}
+\newcommand{\e}{\varepsilon}
+\newcommand{\lm}{\lambda}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\idealin}{\lhd}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newenvironment{Proof}{{\it Proof. }}{}%no end of proof sign
+\newenvironment{PoC}{{\it Proof of Corollary. }}{}
+\newenvironment{PoL}{{\it Proof of Lemma. }}{}
+\newenvironment{PoT}{{\it Proof of Theorem. }}{}
+\newcommand{\defn}{\par\noindent{\bf Definition.}}
+\newenvironment{defnun}{\par\noindent{\bf Definition. }}{\par}
+\newenvironment{questionun}{\par\noindent{\bf Question. }}{\par}
+\newenvironment{conjectureun}{\par\noindent{\bf Conjecture. }}{\par}
+\newenvironment{thmun}{\par\noindent{\bf Theorem. }\begin{it}}{\end{it}\par}
+\newenvironment{lemmaun}{\par\noindent{\bf Lemma. }\begin{it}}{\end{it}\par}
+\newenvironment{propun}{\par\noindent{\bf Proposition. }\begin{it}}{\end{it}\par}
+\newenvironment{corun}{\par\noindent{\bf Corollary. }\begin{it}}{\end{it}\par}
+\newenvironment{defnno}[1]{\par\noindent{\bf Definition #1. }}{\par}
+\newenvironment{questionno}[1]{\par\noindent{\bf Question #1. }}{\par}
+\newenvironment{thmno}[1]{\par\noindent{\bf Theorem #1. }\begin{it}}{\end{it}\par}
+\newenvironment{lemmano}[1]{\par\noindent{\bf Lemma #1. }\begin{it}}{\end{it}\par}
+\newenvironment{propno}[1]{\par\noindent{\bf Proposition #1. }\begin{it}}{\end{it}\par}
+\newenvironment{corno}[1]{\par\noindent{\bf Corollary #1. }\begin{it}}{\end{it}\par}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{examples}[thm]{Examples}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{remk}[thm]{Remark}
+\newtheorem{remks}[thm]{Remarks}
+\newtheorem{qu}[thm]{Question}
+\newtheorem{conject}[thm]{Conjecture}
+\newenvironment{Defn}{\begin{definition}\begin{rm}}{\end{rm}\end{definition}}
+\newenvironment{Example}{\begin{example}\begin{rm}}{\end{rm}\end{example}}
+\newenvironment{Examples}{\begin{examples}\begin{rm}}{\end{rm}\end{examples}}
+\newenvironment{Exercise}{\begin{exercise}\begin{rm}}{\end{rm}\end{exercise}}
+\newenvironment{Remark}{\begin{remk}\begin{rm}}{\end{rm}\end{remk}}
+\newenvironment{Remarks}{\begin{remks}\begin{rm}}{\end{rm}\end{remks}}
+\newenvironment{Question}{\begin{qu}\begin{rm}}{\end{rm}\end{qu}}
+\newenvironment{Conjecture}{\begin{conject}\begin{rm}}{\end{rm}\end{conject}}
+ \newcommand{\detail}[1]{}
+ \newcommand{\Detail}[1]{}
+%\newcommand{\detail}[1]{[#1]}
+%\newcommand{\Detail}[1]{\par[{\bf Details.~~}#1]\par}
+\newcommand{\nn}[1]{|#1|}
+\newcommand{\bignn}[1]{\left|#1\right|}
+\newcommand{\nnY}[1]{|#1|}
+\newcommand{\bignnY}[1]{\left|#1\right|}
+\newcommand{\Rbar}{\overline{R}}
+\newcommand{\Rstar}{R^*}
+\newcommand{\Rsubstar}{R_*}
+\newcommand{\Rtilde}{\tilde R}
+\newcommand{\barstar}[1]{{\closure{#1}\kern 1pt}^*}
+\newcommand{\LE}{{\cal L}(E)}
+\newcommand{\LH}{{\cal L}(H)}
+\newcommand{\LW}{{\cal L}(W)}
+\newcommand{\LX}{{\cal L}(X)}
+\newcommand{\LY}{{\cal L}(Y)}
+\newcommand{\LZ}{{\cal L}(Z)}
+\newcommand{\UX}{{\cal U}(X)}
+\begin{document}
+%==============================================================================
+\title{Topologically irreducible representations and radicals in Banach algebras}
+\author{P.~G.~Dixon}
+\date{15 June 1995, revised 12 February 1996}
+\maketitle
+\insert\footins{1991 {\it Mathematics Subject Classifications} 46H15, 46H25,
+16Nxx.}
+%==============================================================================
+%\begin{abstract}
+%It is shown that the topologically irreducible representations of a normed
+%algebra define a certain topological radical in the same way that the strictly
+%irreducible representations define the Jacobson radical and that this
+%radical can be strictly smaller than the Jacobson radical.    An abstract theory
+%of `topological radicals' in topological algebras is developed and
+%used to relate this radical to the Baer radical (prime radical).    The
+%relations with topologically transitive representations and standard
+%representations in the sense of Meyer are also explored.
+%\end{abstract}
+%==============================================================================
+\section{Introduction.}\label{S1}
+
+The Jacobson radical of an associative algebra is the intersection of the
+kernels of the strictly irreducible representations.  It is natural, when
+studying normed algebras, to consider continuous `topologically irreducible'
+representations on Banach spaces; \ie continuous homomorphisms of the algebra
+onto algebras of bounded operators on Banach spaces for which no
+non-trivial {\em closed} subspace is invariant, (where `non-trivial' means
+having non-zero dimension and codimension).  Again, one looks at the
+intersection of the kernels of all these representations of a given algebra.  We
+shall show (Theorem \ref{T5}) that this is, in a reasonable sense, a
+`topological radical'.
+
+For Banach algebras, topological irreducibility is more general than strict
+irreducibility, so our long-term aspiration is to use topologically irreducible
+representations to study Jacobson radical Banach algebras.   However, whilst it
+is easy to find continuous topologically irreducible representations which are
+not strictly irreducible, it is not immediately clear that the intersection of
+the kernels of these can be strictly smaller than the Jacobson radical.
+
+One way to construct a topologically irreducible representation of a normed
+algebra~$A$ is to find a continuous homomorphism $\phi:A\to B$ into a Banach
+algebra~$B$ such that $\phi(A)$ is dense in~$B$ and~$B$ has strictly irreducible
+representations.    Then every strictly irreducible representation of~$B$
+induces a continuous topologically irreducible representation of~$A$.  This
+construction is due to Meyer \cite{Meyer1}, who calls such representations {\em
+standard}.     We shall use it in Section~\ref{S7} to produce a non-commutative
+Banach algebra in which the radical described above is strictly smaller than the
+Jacobson radical.
+
+During the preparation of this paper, the author asked Charles Read whether his
+work on the Invariant Subspace Problem could be extended to produce a {\it
+quasi-nilpotent} operator on a Banach space with no closed invariant subspace.
+Read was able to do this \cite{Readqn} and his example gives a second Banach
+algebra in which the radical associated with topologically irreducible
+representations is strictly smaller than the Jacobson radical.  Both examples
+are important in our theory.   Read's example has the merit of being commutative;
+ours, which is substantially easier, distinguishes the Jacobson radical from the
+radical associated with the stronger condition of `topological transitivity'.
+
+A normed representation~$\pi$ of an algebra~$A$ on a normed space~$X$ is said to
+be {\em topologically transitive} if, whenever $\{x_1,\dots,x_n\}$,
+$\{y_1,\dots,y_n\}$ are finite subsets of~$X$ with $\{x_1,\dots,x_n\}$ linearly
+independent and $\e>0$, there is an element $a \in A$ with $\|\pi(a)x_i - y_i\|
+< \e$ $(1 \le i \le n)$.  It follows from Jacobson's Density Theorem that all
+standard representations of normed algebras have this property.    It is natural
+to ask (\cite{Palmerbk} p.460, \cite{BD} p.132) whether every topologically
+irreducible representation is topologically transitive.   We shall observe
+(Corollary \ref{C2}) that Enflo's solution of the Invariant Subspace Problem for
+Banach spaces gives a counterexample, because topologically transitive
+representations of commutative algebras must be one-dimensional.  Generalizing
+this, we show (Corollary \ref{C3}) that all topologically transitive
+representations of PI-algebras are finite-dimensional.   Read's example shows
+that the radicals associated with topologically irreducible and with
+topologically transitive representations are distinct.
+
+Our discussion of the radicals associated with these various types of
+representation requires an abstract theory of `topological radicals'
+in topological algebras.  We devote Section~\ref{S5} to setting up such a
+theory.  The main problem is to choose the correct definitions: the theory seems
+to have unusually `sensitive dependence on initial conditions', to borrow a
+phrase from Chaos Theory.   Many reasonable variants on our chosen
+axioms seem not to provide the desired results, (though we have not searched for
+counterexamples to establish this, since our principal concern is with specific
+radicals rather than the axiomatics).    With this theory in place, we can
+produce topological radicals from maps which satisfy most but
+not all of the axioms (UTRs and OTRs).   This enables us to relate the
+new radicals to each other and to a topological radical derived from the Baer
+radical.
+
+Our theory of topological radicals has a variant which applies
+to all normed algebras, not just to Banach algebras.  This is useful in order
+to have an axiom about the radical of a continuous homomorphic image.
+Unfortunately, the Jacobson radical is not a `topological radical' in this
+version:  it is not necessarily closed!    However, as we show in
+Section~\ref{S10}, the intersection of the kernels of the {\em continuous}
+strictly irreducible representations on Banach spaces provides a good alternative
+which coincides with the Jacobson radical in Banach algebras.
+
+In Section~\ref{S9} we note the consequences of not requiring the representation
+space to be complete and the paper concludes with a list of open questions.
+
+I should like to thank Dr. John Rennison for pointing out errors in an earlier
+draft of this paper.
+%==============================================================================
+\section{Definitions and abbreviations}\label{S2}
+
+All algebras considered will be linear associative algebras over the complex
+field.   They will not necessarily be commutative or unital.
+
+A {\em representation} of an algebra~$A$ is a homomorphism~$\pi$ of~$A$ into the
+algebra of all operators on a vector space~$X$.  We shall call~$\pi$ a {\em
+normed representation} of the algebra~$A$ if~$X$ is a normed space and~$\pi$ is
+a homomorphism of~$A$ into the algebra $\LX$ of all bounded operators on~$X$.
+We can look at various refinements of this concept: we may make~$A$ a normed or
+Banach algebra, we may then require the representation to be {\em continuous}
+(with respect to the given norm on~$A$ and the operator norm on $\LX$).  We
+shall generally do this; otherwise, we should be ignoring the topology on~$A$.
+Also, we may require~$X$ to be a Banach space.   This too is a sensible option,
+though we shall consider, in Section~\ref{S9}, the consequences of using
+incomplete spaces.
+
+A representation~$\pi$ of an algebra~$A$ on a vector space~$X$ is said to be
+{\em strictly irreducible} if there is no subspace $Y \sseq X$ with $\{0\} \ne Y \ne X$
+and $\pi(a)(Y) \sseq Y$ for all $a \in A$.  A normed representation $\pi:A \to
+\LX$ of an algebra~$A$ on a normed space~$X$ is said to be {\em topologically
+irreducible (TI)} is there is no closed subspace $Y \sseq X$ with $\{0\} \ne Y
+\ne X$ and $\pi(a)(Y) \sseq Y$ for all $a \in A$.
+
+For any algebra~$A$, we denote by $J(A)$ the {\em Jacobson radical} of~$A$,
+which is the intersection of the kernels of all the strictly irreducible
+representations of~$A$.
+For a normed algebra~$A$, we define the {\em TI radical} $T(A)$ to be the
+intersection of the kernels of all the continuous TI representations of~$A$ on
+Banach spaces.
+Equivalently, we can define a left Banach $A$-module to be {\em topologically
+simple} if it has no closed submodule.    Then $T(A)$ is the intersection of the
+annihilators of the topologically simple left Banach $A$-modules.
+
+A representation~$\pi$ of an algebra~$A$ on a vector space~$X$ is said to be
+{\em transitive} (or {\em strictly dense}) if, whenever $\{x_1,\dots,x_n\}$,
+$\{y_1,\dots,y_n\}$ are finite subsets of~$X$ with $\{x_1,\dots,x_n\}$ linearly
+independent, there is an element $a \in A$ with $\pi(a)x_i = y_i$ $(1 \le i \le
+n)$.  In fact, if this holds for $n=2$, it holds for all~$n$ and the topological
+version of Jacobson's Density Theorem (\cite{Palmerbk} 4.2.13, \cite{Rickart}
+(2.4.7)) says that, for Banach algebras, every strictly irreducible representation is
+transitive.  There is an obvious topological analogue:  for each positive
+integer~$n$, a normed representation~$\pi$ of an algebra~$A$ on a normed
+space~$X$ is said to be {\em topologically $n$-transitive} ($n$-TT) if, whenever
+$\{x_1,\dots,x_n\}$, $\{y_1,\dots,y_n\}$ are subsets of~$X$ with
+$\{x_1,\dots,x_n\}$ linearly independent and $\e > 0$, there is an element $a
+\in A$ with $\|\pi(a)x_i - y_i\| < \e$ $(1 \le i \le n)$.   A representation is
+said to be {\em topologically transitive} (TT)  if it is topologically
+$n$-transitive for all positive integers~$n$.   This is `topologically
+completely irreducible' in Palmer's terminology and is equivalent to saying that
+$\pi(A)$ is dense in $\LX$ in the strong operator topology (the topology given
+by the seminorms $T \mapsto \|Tx\|$ $(x \in X)$).    It is not known whether or
+not $n$-TT for some $n \ge 2$ implies TT.  We write $T_n(A)$, $T_\infty(A)$ for the
+intersection of the kernels of all the continuous $n$-TT, TT (respectively)
+representations of~$A$ on Banach spaces.
+
+
+A particular type of continuous TT representation arises as follows.
+Let~$\rho$ be a strictly irreducible representation of a Banach algebra~$B$ on a linear
+space~$X$.   Then there is a unique Banach space norm on~$X$ making the
+representation normed and continuous (\cite{Palmerbk},~4.2.16(a), 4.2.15).
+Let~$A$ be a normed algebra and $\phi:A \to B$ a continuous homomorphism such
+that $\phi(A)$ is dense in~$B$.  Then $\pi = \rho\phi$ is a TT representation
+of~$A$ on~$X$.
+\detail{For if $x_1,\dots,x_n,$ $y_1,\dots,y_n$ are in~$X$ with
+$\{x_1,\dots,x_n\}$ linearly independent, then there exists $b \in B$ such that
+$\rho(b)(x_i) = y_i$ $(1 \le i \le n)$.   Given $\e > 0$, we find $a \in A$ such
+that $\|\phi(a) - b\| < \e/\max_i\|x_i\|$ and then $\|\pi(a)(x_i) - y_i\| < \e$.}
+Following Meyer \cite{Meyer1}, we call such TT representations {\em standard}.
+The intersection of the kernels of all the standard TT representations of a
+given normed algebra~$A$ will be denoted $S(A)$.
+
+For a normed algebra~$A$, the inclusions
+$$T(A) \sseq T_m(A) \sseq T_n(A) \sseq T_\infty(A) \sseq J(A) \qquad (m \le n)$$
+are clear.   What is not immediately clear is whether any of these inclusions
+can be strict.
+
+%==============================================================================
+\section{Elementary properties of TI representations}\label{S3}
+
+Some of our later examples will produce, {\em inter alia}, TI representations
+which are not strictly irreducible, but it is worth noting now that
+satisfying these requirements alone is quite easy.
+
+\begin{Example}\label{Ex1}
+Let~$A= \ell^1(S_2)$ be the semigroup algebra of the free semigroup on two
+generators $X,Y$.    Let~$T$ be the unilateral shift on $H=\ell^2$:
+\begin{eqnarray*}
+T(\xi_1,\xi_2,\xi_3,\dots) & = & (0,\xi_1,\xi_2,\dots)\\
+T^*(\xi_1,\xi_2,\xi_3,\dots) & = & (\xi_2,\xi_3,\xi_4,\dots)
+\end{eqnarray*}
+Let~$\pi$ be the continuous representation of~$A$ on $\ell^2$ defined by
+$\pi(\delta_X) = T$, $\pi(\delta_Y) = T^*$.   It is easy to see that
+$\pi(A)$ is a *-subalgebra of $\LH$ with scalar commutant, so, by von Neumann's
+Double Commutant Theorem, its strong closure is $\LH$, \ie $\pi$ is TT; but
+$$\pi(A)((1,0,0,\dots))  = \ell^1,$$ so~$\pi$ is not strictly irreducible.
+\end{Example}
+
+\begin{Remark}
+For *-representations of C*-algebras,
+Kadison's Transitivity Theorem says that TI implies strictly irreducible
+(\cite{Kadison}, see also \cite{Murphy} 5.2.2, \cite{Sakai} 1.21.17).  In
+the example above, $\pi(A)$ is not closed in $\LH$.
+\end{Remark}
+
+We shall be seeking to relate the TI radical to radicals definable without
+reference to representations.    In one direction this is easy, provided the
+algebra is complete:  every strictly irreducible representation of a Banach algebra~$A$ has the
+same kernel as some continuous strictly irreducible representation of~$A$ on a Banach
+space (\cite{Palmerbk} 4.2.9, \cite{Rickart} (2.4.7)).    Hence the TI radical
+of a Banach algebra is contained in the Jacobson radical, which has many
+characterizations not directly involving representations (largest quasi-regular
+ideal, largest ideal of topologically nilpotent elements, intersection of the
+maximal modular left ideals).   It is not immediately clear
+that this inclusion can be strict---in Example \ref{Ex1} above, the algebra~$A$
+is semisimple so there are many other representations which are strictly
+irreducible---but we shall give an example later where this is so.
+
+In the other direction, the only results we know stem from the following
+proposition.
+
+\begin{prop}\label{P1} {\rm (\cite{Palmerbk} 4.2.5(a), 4.4.9(a))}
+The kernel of a TI representation of an algebra~$A$ on a normed space is a prime
+ideal of~$A$.   Hence, the intersection of the kernels of the TI representations of an algebra~$A$
+contains the Baer radical of~$A$.
+\end{prop}
+
+The {\em Baer radical} or {\em prime radical} $\bt(A)$ of an algebra~$A$
+is the intersection of all the prime ideals of~$A$; equivalently, it is the
+smallest ideal~$I$ of~$A$ such that $A/I$ has no non-zero nilpotent ideals
+(\cite{Palmerbk} 4.4.6).  It is the smallest of three radicals, the others being
+the Levitzki radical and the nil radical, that coincide for Banach algebras
+\cite{PGD7}.   However, Corollary \ref{C11} below shows that, for incomplete
+normed algebras, the TI radical does not necessarily contain the other two
+radicals.
+
+When we consider {\em continuous} TI representations of a normed algebra,
+we have the further information that the kernels of the representations are
+closed.    Consequently, the TI radical of a normed algebra~$A$ contains the
+closure of the Baer radical $\overline{\bt(A)}$.   However,
+$A/\overline{\bt(A)}$ might fail to be semiprime, in which case the preimage
+in~$A$ of its Baer radical is also included in the TI radical, as is its
+closure, and so on.  This leads us to construct (in Corollary \ref{C4}) a new
+radical, the {\em closed-Baer radical} $\barstar{\beta}$, to give a good lower
+bound for the TI radical.
+
+%==============================================================================
+\section{Classical problems}\label{S4}
+
+The difficulty of working with TI representations is well illustrated by their
+relation to some famous problems of functional analysis.
+
+\begin{prop} \label{P2}
+The following are equivalent (and true):
+\begin{arbenumerate}
+\item there is a singly-generated (as a Banach algebra) Banach algebra with a
+continuous faithful TI representation on an infinite-dimensional Banach space;
+\item there is a singly-generated Banach algebra with a continuous non-zero TI
+representation on an infinite-dimensional Banach space;
+\item there is an operator on an infinite-dimensional Banach space with no
+non-trivial closed invariant subspace.
+\end{arbenumerate}
+\end{prop}
+
+\begin{Proof}
+The truth of (3) is Enflo's solution of the Invariant Subspace Problem for Banach
+Spaces \cite{Enflo} (see also \cite{Read}, \cite{Beauzamy} Chapter XIV).
+The proof of the equivalence of (1), (2) and (3) is straightforward.
+\Detail{%
+\begin{description}
+\item{(1) $\Rightarrow$ (2)} is trivial.
+\item{(2) $\Rightarrow$ (3)}.
+Let~$A$ be a Banach algebra with generator~$a$ and let~$\pi$ be a continuous TI
+representation of~$A$ on a Banach space~$X$ such that $\pi(a) \ne 0$.    Then
+there is no non-trivial closed invariant subspace of $\pi(a)$, since any such
+subspace would be invariant for $\pi(A)$, contradicting the fact that~$\pi$ is TI.
+\item{(3) $\Rightarrow$ (1)}.
+Given an operator~$T$ on a Banach space~$X$ with no non-trivial closed invariant
+subspace, let~$A$ be the closed subalgebra of $\LX$ generated by~$T$.   Then the
+natural representation of~$A$ on~$X$ is TI, faithful and continuous.
+\end{description}}
+\end{Proof}
+
+Note the sharp contrast with the situation for strictly irreducible
+representations:  it follows from Schur's Lemma that strictly irreducible representations of commutative
+Banach algebras must be one-dimensional (\cite{Palmerbk} 4.2.19).
+
+\begin{prop}\label{P3}
+The following are equivalent (and true):
+\begin{arbenumerate}
+\item there is a singly-generated (as a Banach algebra) radical Banach algebra
+with a continuous faithful TI representation on an infinite-dimensional Banach
+space;
+\item there is a singly-generated (as a Banach algebra) radical Banach algebra
+with a continuous non-zero TI representation on an
+infinite-dimensional Banach space;
+\item there is a quasi-nilpotent operator on an infinite-dimensional Banach
+space with no non-trivial closed invariant subspace.
+\end{arbenumerate}
+\end{prop}
+
+\begin{Proof}
+The truth of (3) is a recent result of Read \cite{Readqn}.   We prove the
+equivalence of (1), (2) and (3).
+
+In (2)$\Rightarrow$(3), if $\pi:A\to\LX$ is a continuous, TI representation with
+$\pi(a)\ne 0$ for some $a\in A$, then the desired operator $\pi(a)$ is
+quasi-nilpotent.  In (3)$\Rightarrow$(1), if~$T$ is the given quasi-nilpotent operator
+on~$X$, then the closed subalgebra of $\LX$ that it generates is radical.
+\Detail{Since~$T$ is quasi-nilpotent, so are all the polynomials in~$T$.   The
+closed subalgebra $A \sseq \LX$ generated by~$T$ is a commutative Banach
+algebra, so its Jacobson radical is the set of all quasi-nilpotents and this set
+is closed.  Since the polynomials in~$T$ are dense in~$A$, it follows that~$A$
+is Jacobson radical.}
+\end{Proof}
+
+\begin{Remark}
+Since finite-dimensional subspaces are automatically closed, all
+finite-dimensional TI representations of algebras are strictly irreducible.
+Hence, if a radical algebra has TI representations, they must be
+infinite-dimensional.
+\end{Remark}
+
+Finally, we note that the famous problem of the existence of a topologically
+simple commutative radical Banach algebra is equivalent to asking for a
+commutative radical Banach algebra for which the left regular representation
+is TI.
+%============================================================================
+\section{Topologically transitive representations}\label{S4a}
+
+The obvious first question about TT representations is whether there are
+TI representations which are not TT.   One way in which such representations
+might occur is as the left regular representations of radical Banach algebras
+with no non-trivial closed left ideals, if such exist.
+
+\begin{thm}\label{T0}
+If~$A$ is a Banach algebra of dimension greater than~1, then the left regular
+representation of~$A$ on~$A$ is not 2-TT.
+\end{thm}
+
+\begin{Proof}
+We begin by proving this under the assumption\\
+(*) there are elements $x,y \in A$ such that~$x$ and $xy$ are linearly
+independent.
+
+Suppose the representation is 2-TT.  Then, for every
+$\e > 0$ there is an element $a \in A$ such that
+$$\|axy - x\| < \e\qquad \mbox{and} \qquad \|ax\| < \e.$$
+Then, for every~$\e>0$,
+$$\|x\| \le \|axy - x\| + \|ax\|\,\|y\| < \e(1+\|y\|).$$
+Thus $x=0$, contradicting (*).
+
+Now assume that (*) is false.   Then, for every $a,x_1,x_2 \in A$ with
+$\{x_1,x_2\}$ linearly independent, the elements $ax_1$ and $ax_2$ lie in the
+same 1-dimensional subspace (spanned by~$a$).  Thus we can not make choices of
+$a$ which bring $ax_1, ax_2$ indefinitely close to two given linearly
+independent vectors $y_1,y_2$; so the left regular representation is not 2-TT.
+\end{Proof}
+
+\begin{Remark}
+The problem of whether there exists a radical Banach algebra with no non-trivial
+closed left ideals lies between two unsolved problems: the existence of a
+topologically simple radical Banach algebra \detail{no non-trivial closed
+two-sided ideals}\ and the existence of a topologically simple commutative
+radical Banach algebra.  \detail{Might it be equivalent to one of these questions?}
+\end{Remark}
+
+Another approach to constructing TI, non-TT representations
+leads to the Invariant Subspace Problem, and therefore succeeds.
+The following theorem is probably the best topological analogue of Schur's Lemma
+on strictly irreducible representations.    (Remember that $\LX$ here denotes
+the algebra of all {\em bounded} operators on~$X$.)
+
+\begin{thm}\label{T1}
+If $(\pi,X)$ is a 2-TT representation of a (not
+necessarily normed) algebra~$A$ on a normed space~$X$, then
+$$\{T \in \LX: T\pi(a) = \pi(a)T\quad(a \in A)\} = \C I.$$
+In particular, if~$A$ is commutative then $\dim X = 1$.
+\end{thm}
+
+\begin{Proof}
+Suppose $T\pi(a) = \pi(a)T$ and~$T$ is not a multiple of the identity.
+Let $\xi \in X$ be such that~$\xi$
+and $T\xi$ are linearly independent.    Let~$\eta,\zeta \in X$ be
+arbitrary.    If~$\pi$ were 2-TT, we could find a sequence
+$(b_n)$ in~$A$ with $\pi(b_n)\xi \to \eta$ and $\pi(b_n)(T\xi) \to \zeta$.
+However,
+$$\pi(b_n)(T\xi) = T(\pi(b_n)\xi) \to T\eta.$$
+Therefore $\zeta = T\eta$, contradicting the arbitrariness of~$\zeta$.
+\end{Proof}
+
+\begin{cor}\label{C2b}
+For a commutative Banach algebra, $T_2(A) = J(A)$.
+\end{cor}
+
+Applying Theorem \ref{T1} to the infinite-dimensional TI representation derived
+from the solution to the Invariant Subspace Problem (Proposition~\ref{P2}(1)),
+we obtain the following corollary.
+
+\begin{cor}\label{C2}
+There is a commutative Banach algebra with a continuous TI representation
+which is not 2-TT.
+\end{cor}
+
+Read's new example (Proposition~\ref{P3}) yields a significantly stronger
+statement.
+
+\begin{cor}\label{C2a}
+There is a commutative Banach algebra with $T(A) \ne T_2(A)$.
+\end{cor}
+
+\begin{Remark}
+Beauzamy (\cite{Beauzamy} Chapter XIV) and Read's papers \cite{Readl1},
+\cite{Readqn} on the invariant subspace problem give examples where the Banach
+space is $\ell_1$, so, in these corollaries, the pathology may be confined to
+the algebra (whose structure is unclear) and the representation, rather than the
+Banach space.   We conjecture that there are examples with straightforward
+algebras and Banach spaces, the pathology being confined just to the
+representations.
+\end{Remark}
+
+It is interesting to explore generalizations of Theorem \ref{T1} to algebras
+satisfying polynomial identities.  Bearing in mind the Amitsur--Levitzki
+Theorem, that $M_n(\C)$ satisfies the standard polynomial identities $S_k$ for
+$k \ge 2n$, we make the following conjecture.
+
+\begin{Conjecture}
+Let~$n \ge 1$. If~$A$ is an algebra satisfying the standard polynomial identity
+$S_{2n-1}$, then every $n$-TT representation of~$A$ on a
+normed space~$X$ has $\dim X < \infty$, (and is therefore a strictly irreducible
+representation with $\dim X < n$).
+\end{Conjecture}
+
+The obvious approach goes as follows.  Suppose $\pi:A \to \LX$ is a
+$n$-TT representation with $\dim X \ge n$.  Let
+$\{e_1,\dots e_n\}$ be a linearly independent set in~$X$.   Now the algebra
+$M_n(\C)$ of $n \times n$ matrices does not satisfy $S_{2n-1}$.   Let
+$T_1,\dots,T_{2n-1}$ be linear mappings  on the span of $\{e_1,\dots e_n\}$ such
+that $S_{2n-1}(T_1,\dots,T_{2n-1}) \ne 0$.   Since~$\pi$ is $n$-TT, we
+can find $a_1,\dots,a_{2n-1} \in A$ with $\pi(a_i)e_j$ approximating $T_ie_j$
+$(1 \le i \le 2n-1,\;1 \le j \le n)$.    Unfortunately, we have no control over
+the norms $\|a_i\|$ and so the elements $\pi(a_{i_1})\dots\pi(a_{i_{2n-1}})e_j$
+might not approximate to $T_{i_1}\dots T_{i_{2n-1}}e_j$.
+
+\begin{thm}\label{T1.5}
+Let~$n \ge 1$. If~$A$ is an algebra satisfying the standard polynomial
+identity $S_{n+1}$, then every $2^n$-TT representation
+of~$A$ on a normed space~$X$ has $\dim X < \infty$, (and is therefore a strictly
+irreducible representation with $\dim X \le [(n+1)/2]$).
+\end{thm}
+
+\begin{Proof}
+The following notation will be useful:  if $B = \{b_1,\dots,b_k\} \sseq A$
+and~$\pi$ is our representation of~$A$, then
+$$S(B) = \pm S_k(\pi(b_1),\dots,\pi(b_k)),$$
+where we shall ignore the sign.  (This is a convenient shorthand; a more
+detailed proof merely requires a straightforward, but obfuscating, replacement
+of this notation by one dependent on particular orderings of the subsets~$B$ for
+which $S(B)$ is used.)   We write $S(\emptyset) = I$, the identity operator.
+
+We shall prove, by induction on~$n$, that if $\pi:A \to \LX$ is a
+$2^n$-TT representation of an algebra~$A$ on an
+infinite-dimensional normed space~$X$ and $x \in X\setminus\{0\}$, then
+there exist $a_1,\dots,a_{n+1} \in A$ such that
+$\{S(B)x: B \sseq \{a_1,\dots,a_{n+1}\}\}$ is linearly independent.
+In particular, this implies that
+$$\pi(S_{n+1}(a_1,\dots,a_{n+1})) = \pm S(\{a_1,\dots,a_{n+1}\}) \ne 0,$$
+so~$A$ does not satisfy the identity $S_{n+1}$.
+
+The induction starts trivially at $n=0$.
+Suppose the result has been proved for $n-1$, where $n \ge 1$.   Given
+a $2^n$-TT representation $\pi:A \to \LX$ and $x \in X\setminus\{0\}$, we use
+the induction hypothesis to find $a_1,a_2,\dots,a_n \in A$ such that the set
+$E_0=\{S(B)x: B \sseq \{a_1,\dots,a_n\}\}$ is linearly independent.
+
+As a first approximation to $a_{n+1}$, we find an element $b_1 \in A$ such that
+$\pi(b_1)x \nin {\rm span} E_0$, \ie the set
+$$E_1 = \{S(B)x: B \sseq \{a_1,\dots,a_n\}, B=\{b_1\}\}$$
+is linearly independent.
+
+Let $W_1=\emptyset,W_2,W_3,\dots,W_{2^n}$ be an enumeration of all the subsets
+of $\{a_1,\dots,a_n\}$, ordered so that $|W_i| \le |W_j|$ $(i \le j)$,
+(where $|W|$ denotes the cardinality of~$W$).
+We construct successive approximations
+$b_k$ to the desired $a_{n+1}$ such that
+$$E_k = \{S(W_i\cup \{b_k\})x:1 \le i \le k\}\cup E_0$$
+is linearly independent.  We will then set $a_{n+1}=b_{2^n}$.
+
+We have already described the construction of $b_1$.   Suppose $b_{k-1}$ has
+been constructed as above.   Each $S(W_i\cup \{b_k\})x$ $(i<k)$ may be written
+$$S(W_i\cup \{b_k\})x = \sum\pm S(U)\pi(b_k)S(V)x,$$
+where the summation is over all partitions $U \cup V = W_i$
+and is therefore a continuous function of the vectors $\pi(b_k)S(W_j)x \in X$
+$(j \le i)$.   The induction hypothesis on $b_{k-1}$ means that the set
+$$F_k=\{S(W_i\cup \{b_k\})x:1 \le i \le k-1\}\cup
+                                  \{S(B)x: B \sseq \{a_1,\dots,a_n\}\}$$
+is linearly independent when $b_k = b_{k-1}$ (making $F_k=E_{k-1}$).
+If $S(W_k\cup \{b_{k-1}\})x$ is not in the linear span of $E_{k-1}$, then we
+may set $b_k = b_{k-1}$. Suppose otherwise.  We shall set $b_k = b_{k-1} + d_k$
+for some perturbation~$d_k$ which is `small' {\em in the sense that} the vectors
+$\pi(d_k)S(W_j)x$ are small for all $j < k$.  Our basic idea is that by the
+stability of linear independence under small perturbations,  (see \eg\
+\cite{Jameson} Corollary 20.7), the fact that $F_k$ is linearly independent
+remains true as $b_k$ is perturbed away from $b_{k-1}$, provided that $d_k$ is
+sufficiently small in the above sense.
+
+Choose a vector~$y$ outside the span of $E_{k-1}$.  Then the set
+$E_{k-1} \cup \{S(W_k\cup \{b_{k-1}\})x + y\}$ is linearly independent.
+By the induction hypothesis on $a_n$, the points $S(W_j)x$ $(1 \le j \le 2^n)$
+are linearly independent.   These $2^n$ points may be
+separated by~$\pi$;  we can therefore find `small' $d_k$ so that $\pi(d_k)S(W_k)x$
+approximates~$y$.  Now
+$$S(W_k\cup \{b_k\})x = S(W_k\cup \{b_{k-1}\})x + \pi(d_k)S(W_k)x
+                                + \sumprime_{}\pm S(U)\pi(d_k)S(V)x$$
+where the sum $\sum'$ is taken over all partitions $U \cup V = W_k$ with
+$U \ne \emptyset$.  The last term is a continuous function of the vectors
+$\pi(d_k)S(W_j)x$ $(j < k)$.  Therefore, if we choose sufficiently `small' $d_k$
+with $\pi(d_k)S(W_k)x$ sufficiently close to ~$y$, then we can ensure that the
+perturbation from
+$$E_{k-1} \cup \{S(W_k\cup \{b_{k-1}\})x + y\}$$
+to
+$$E_k = F_k \cup \{S(W_k\cup \{b_k\})x\}$$
+is small enough to preserve linear independence.  This completes the induction
+step in the construction of the $b_k$.   Putting $a_{n+1}=b_{2^n}$ then
+completes the induction step for the whole proof.
+\end{Proof}
+
+\begin{cor}\label{C3}
+Every TT representation of a PI-algebra is finite-dimensional and hence
+strictly irreducible.
+\end{cor}
+
+\begin{Proof}
+If~$A$ is a PI-algebra, then $A/\bt(A)$ is PI and so, by a corollary of
+Kaplansky's Theorem (\cite{Rowen} Theorem 6.1.28), satisfies a standard
+identity.
+
+Every TT representation~$\pi:A\to\LX$ has $\ker\pi\supseteq\bt(A)$ and so
+induces a representation~$\pi':A/\bt(A)\to\LX$ with $\pi'(A/\bt(A)) = \pi(A)$.
+In particular,~$\pi'$ is TT.   By Theorem \ref{T1.5}, $\pi'$ is strictly
+irreducible, so~$\pi$ is strictly irreducible.
+\end{Proof}
+%==============================================================================
+\section{A general theory of radicals}\label{S5}
+
+In this section, we develop a little of a general theory of radicals in
+normed algebras.    The calculations are generally straightforward once the
+correct definitions are in place; but the theory is quite sensitive to
+these.   Our attempts based on only slightly different definitions, such
+as the obvious analogue of Divinsky's algebraic definition or a definition
+including non-closed ideals in~(4) below have foundered on seemingly
+insignificant technicalities.
+
+Nevertheless, several variations do work.    In the following definition we
+present simultaneously our algebraic and topological notions of a `radical', and
+some of our theorems will exist in both contexts.  In Section~\ref{S10} we shall
+discuss the variant of the topological version in which radicals are defined for
+incomplete algebras.
+
+\begin{Defn}
+By a {\em radical} (respectively, a {\em topological radical}), we mean a
+map~$R$ associating with each algebra (Banach algebra)~$A$
+a (closed) ideal $R(A) \idealin A$ such that the following hold.
+\begin{arbenumerate}
+\item $R(R(A)) = R(A)$.
+\item $R(A/R(A)) = \{0\}$, where $\{0\}$ denotes the zero coset in $A/R(A)$.
+\item If $A,B$ are (Banach) algebras and $\phi:A \onto B$ is a
+(continuous) epimorphism, then $\phi(R(A))\sseq R(B)$.  (`Epimorphism' here
+means just `surjective homomorphism'.)
+\item If $I$ is a (closed) ideal of $A$, then
+\begin{alenumerate}
+   \item $R(I)$ is a (closed) ideal of $A$ and
+   \item $R(I) \sseq R(A) \cap I$.
+\end{alenumerate}
+\end{arbenumerate}
+We say that~$R$ is a {\em hereditary (topological) radical} if it
+satisfies~(2),~(3),~(4) and
+\begin{arbenumerate}
+\addtocounter{arbenum}{4}
+\item If $I$ is a (closed) ideal of $A$, then $R(I) \supseteq R(A) \cap I$.
+\end{arbenumerate}
+(Note that (5)$\implies$(1).)
+
+We say that an algebra~$A$ is {\it $R$-semisimple} if $R(A) = \{0\}$ and
+{\it $R$-radical} if $R(A)=A$.
+\end{Defn}
+
+We have preferred to cast our theory in terms of maps, rather than `radical
+property' used by other authors (e.g.\ Divinsky \cite{Divinskybk} p.3),
+to facilitate generalizations (Definition \ref{D2}).  Translation between the
+two forms is easy: the `property' corresponding to a radical~$R$ is~$A$ being
+equal to $R(A)$; the map corresponding to a given property associates with a
+(Banach) algebra~$A$ the largest (closed) ideal of~$A$ with the given property.
+Divinsky's definition and its obvious topological analogue, stated in terms
+of a map~$R$,  are our definitions with (3) and (4) replaced by
+\begin{arbdashenumerate}
+\addtocounter{arbdashenum}{2}
+\item If $A,B$ are (Banach) algebras, $A=R(A)$ and $\phi:A \onto B$ is a
+(continuous) epimorphism, then $B=R(B)$.
+\item if~$I$ is a (closed) ideal of~$A$ with $R(I) = I$, then $I \sseq R(A)$.
+\end{arbdashenumerate}
+In the algebraic case, this is easily equivalent to our definition, but it is
+not clear whether this is so in the topological case.  (Clearly $(3) \Rightarrow
+(3)'$ and $(4) \Rightarrow (4)'$, in both cases.   Also the implication
+$((2)\;\&\;(3)'\;\&\;(4)') \Rightarrow (4)$ can be proved in the topological case by the
+method of Divinsky's Theorem~47 if the radical satisfies a weak
+non-triviality condition:  that all Banach algebras with zero multiplication be
+radical.)   We claim that our definition is at least as aesthetically satisfying
+as Divinsky's and is easier to work with in the topological case and we leave the
+detailed investigation of the relation between the two for others to study.
+
+\Detail{In the algebraic case, $((1)\;\&\;(3)'\;\&\;(4)')\Rightarrow (3)$: apply
+$(3)'$ to the restricted mapping $\phi: R(A) \onto \phi(R(A))$.  Then~(1)
+implies $R(\phi(R(A))) = \phi(R(A))$.  Since $\phi:A \onto B$ is surjective and
+$R(A) \idealin A$, we have $\phi(R(A)) \idealin B$.  An application of~$(4)'$
+then gives $\phi(R(A)) \sseq R(B)$.    However, in the topological case,
+$\phi(R(A))$ might not be closed, so neither~$(3)'$ nor~$(4)'$ would
+necessarily apply.
+
+In the algebraic case, also, $((2)\;\&\;(3)'\;\&\;(4)')\Rightarrow (4)$ by
+Divinsky's Theorem~47 and its first corollary.  In the topological case,
+however, the proof of Theorem~47 fails because sums and products of closed
+subspaces are not necessarily closed.   If all null algebras are radical, the
+section of Divinsky's proof which shows that $[xR(I)+R(I)]/R(I)$ is null goes
+through as before.  We deduce that $\closure{xR(I)+R(I)}/R(I)$ is null and
+therefore radical.  The proof concludes as before.}
+
+Condition (5) has the following equivalent (in the presence of (4)) formulation
+(see \cite{Divinskybk} p.123, Lemma 68).
+\begin{arbdashenumerate}
+\addtocounter{arbdashenum}{4}
+\item Every (closed) ideal $I$ of~$A$ with $I \sseq R(A)$ has $I = R(I)$.
+\end{arbdashenumerate}
+\detail{That (5)$\implies$(5)$'$ is obvious.  Conversely, given (5)$'$, then the argument
+\begin{eqnarray*}
+I\cap R(A) & = & R(I \cap R(A)), \qquad\mbox{by (5)$'$ applied to }I \cap R(A) \sseq R(A)\\
+&\sseq&R(I) \cap I \cap R(A), \qquad\mbox{by (4) applied to }I \cap R(A) \idealin I
+\end{eqnarray*}
+proves (5).}
+
+We shall order radical and other such maps by inclusion: we write $R \le S$ to
+mean $R(A) \sseq S(A)$ for all algebras~$A$ (all Banach algebras~$A$,
+in the topological case).
+
+\begin{Defn}\label{D2}
+We shall say that a map $A \mapsto R(A)$ which associates with each (Banach)
+algebra a (closed) ideal is an {\em under radical (UR)}, (respectively,
+{\em under topological radical (UTR)}) if it satisfies
+(1), (3) and (4).   We shall say that it is an {\em over radical (OR)}, (respectively,
+{\em over topological radical (OTR)}) if it satisfies
+(2), (3) and (4).
+\end{Defn}
+
+The reason for the terminology is that we shall show how a radical can
+be constructed above a given UR (Theorem \ref{T3}) and
+below a given OR (Theorem \ref{T4}).    (We avoid the
+Latin prefixes `sub' and `super' lest common usage of the latter should
+suggest something stronger than radical.)
+
+One way in which UTRs arise is in trying to convert algebraic
+radicals into topological radicals by taking closures.
+
+\begin{thm}\label{T2}
+Let~$R$ be a UR.   For Banach algebras~$A$, define
+$$\Rbar(A) = \closure{R(A)}.$$
+Then $\Rbar$ is a UTR.
+\end{thm}
+
+The proof is straightforward.
+\Detail{\begin{Proof}
+The map~$R$ has the algebraic properties (1), (3) and (4).  We must prove
+the topological versions of (1), (3) and (4) for $\Rbar$.
+\begin{arbenumerate}
+%-------------------------------
+\item The set $R(A)$ is an ideal of~$A$ and hence of $\Rbar(A)$.   Therefore,
+by (2) and (4), $R(A) = R(R(A)) \sseq R(\Rbar(A))$.  Taking closures, we get
+$\Rbar(A) \sseq \Rbar(\Rbar(A))$. The reverse inclusion is trivial.
+%-------------------------------
+\addtocounter{arbenum}{1}
+\item If $\phi:A \onto B$ is a continuous epimorphism,
+then $\phi(R(A)) \sseq R(B)$, by (3), so
+$\phi(\Rbar(A)) \sseq \closure{\phi(R(A))} \sseq \Rbar(B).$
+%-------------------------------
+\item
+If $I$ is a closed ideal of~$A$ then $R(I) \idealin A$ by (4)(a) and
+$\Rbar(I)$, which is defined as the closure of $R(I)$ in~$I$, is the closure
+of $R(I)$ in~$A$.  Therefore $\Rbar(I)$ is a closed ideal of~$A$.
+Moreover, by (4)(b), $R(I) \sseq R(A) \cap I \sseq \Rbar(A) \cap I$.
+Now $\Rbar(A) \cap I$ is closed in $I$, so $\Rbar(I) \sseq \Rbar(A) \cap I$.
+%-------------------------------
+\end{arbenumerate}
+\end{Proof}}
+Unfortunately, the map $\Rbar$ need not satisfy (2), even if~$R$ does.
+The natural example of this is the following.
+
+\begin{Example}\label{C01}
+Let~$A$ be the Banach algebra $(C[0,1],*)$ of all bounded, continuous,
+complex-valued functions on the unit interval, with convolution multiplication
+and let~$\beta$ be the Baer radical map.   Then, using the Titchmarsh
+Convolution Theorem, $\beta(A)$ is the ideal of all functions vanishing on a
+neighbourhood of zero.   Hence $\overline{\beta}(A)$ is the ideal of
+functions vanishing at zero.   The quotient $A/\overline{\beta}(A)$ is
+the one-dimensional algebra with zero multiplication, so
+condition (2) fails.
+\end{Example}
+
+If $\Rbar(A/\Rbar(A)) \neq \{0\}$, then we have to look at the inverse image
+in~$A$ of $\Rbar(A/\Rbar(A))$ under the quotient map $A \onto A/\Rbar(A)$.
+There is no reason why the quotient of~$A$ by this ideal should be
+$\Rbar$-semisimple, so we again look at the inverse image of the radical.
+We may expect to have to continue this process transfinitely to get
+a topological radical.
+
+\begin{Defn}\label{D3}
+Let $R$ be a map associating with each (Banach) algebra~$A$ a (closed)
+ideal $R(A)$.   We define a transfinite sequence of such maps $(R_\al)$ by:
+\begin{rmenumerate}
+\item $R_0(A) = \{0\}$;
+\item $R_{\al+1}(A) = q^{-1}\left(R(A/R_\al(A))\right)$, where $q:A \to A/R_\al(A)$
+is the quotient map,    (so, for example, $R_1 = R$);
+\item for limit ordinals~$\lm$, $$R_\lm(A) = \bigcup_{\al < \lm}R_\al(A)$$ in the
+algebraic case and $$R_\lm(A) = \closure{\bigcup_{\al < \lm}R_\al(A)}$$ in the
+topological case.
+\end{rmenumerate}
+The transfinite sequence of sets $(R_\al(A))$ is monotonic non-decreasing, so it
+must stabilise at the $\al$th stage, where~$\al$ is at most the cardinality
+of~$A$.  We then write $\Rstar(A) = R_\al(A) = R_{\al+1}(A)$.
+\end{Defn}
+
+For example, if $R = \overline{\beta}$, then $\Rstar(A) = R_2(A)$ for the
+algebra~$A$ of Example \ref{C01} above.
+
+\begin{thm}\label{T3}
+If~$R$ is a UR (respectively, a UTR), then so is $R_\al$,
+for every ordinal~$\al$, and $\Rstar$ is a radical (topological radical).
+\end{thm}
+
+\begin{Proof}
+We prove the topological case, which is the one of most interest to us now.
+The algebraic case is similar and easier.
+
+The fact that $\Rstar$ satisfies condition (2) is easy: because the sequence
+has stabilised,
+$$\Rstar(A) = q^{-1}(R(A/\Rstar(A))),$$
+\ie $R(A/\Rstar(A)) = \{0\}$.   It follows that $R_\al(A/\Rstar(A)) = \{0\}$
+for all~$\al$, and so $\Rstar(A/\Rstar(A)) = \{0\}$.
+
+The rest of the proof consists of showing by transfinite induction on~$\al$,
+that $R_\al$ satisfies conditions (1), (3) and (4).    The result is trivially
+true for $\al = 0$, which starts the induction.   Most of the work lies in the
+induction step to successor ordinals.  Suppose $R_\al$ is a topological radical.   We
+write $(n)_\al$ to mean condition $(n)$ on $R_\al$.
+\begin{arbenumerate}
+%-------------------------------
+\item
+\begin{eqnarray*}
+R_{\al+1}(R_{\al+1}(A)) & = & q^{-1}(R(R_{\al+1}(A)/R_\al(A)))\\
+& = & q^{-1}(R(R(A/R_\al(A)))) \\
+& = & q^{-1}(R(A/R_\al(A))), \qquad\mbox{ by }(1)_1, \\
+& = & R_{\al+1}(A).
+\end{eqnarray*}
+%-------------------------------
+\addtocounter{arbenum}{1}
+\item
+Suppose $\phi:A \onto B$ is a continuous epimorphism between
+Banach algebras.    By $(3)_\al$, we have $\phi(R_\al(A))
+\sseq R_\al(B)$.  Hence~$\phi$ induces a continuous homomorphism
+$\psi:A/R_\al(A) \onto B/R_\al(B)$\detail{ by $\psi(a + R_\al(A)) = \phi(a) + R_\al(B)$
+with $\|\psi\| \le \|\phi\|$}.  By $(3)_1$,
+$$\psi(R(A/R_\al(A))) \sseq R(B/R_\al(B)).$$
+Writing $q_A:A \onto A/R_\al(A)$ and $q_B:B \onto B/R_\al(B)$, we have
+\begin{eqnarray*}
+R_{\al+1}(B) & = & q_B^{-1}(R(B/R_\al(B)))\\
+& \supseteq & q_B^{-1}(\psi(R(A/R_\al(A))))\\
+%& = & q_B^{-1}(\psi(q_A(R_{\al+1}(A))))\\
+& = & q_B^{-1}(\{\psi(x + R_\al(A)): x \in R_{\al+1}(A)\})\\
+& = & \{\phi(x) + y: x \in R_{\al+1}(A), y \in R_\al(B)\}.
+\end{eqnarray*}
+Therefore $\phi(R_{\al+1}(A)) \sseq R_{\al+1}(B)$.
+%-----------------------------------
+\item
+Suppose~$I$ is a closed ideal of the Banach algebra~$A$.  Then $(4)_\al$ implies
+that $R_\al(I)$ is a closed ideal of~$A$ and $R_\al(I) \sseq R_\al(A) \cap I$.
+Now $I/R_\al(I)$ is a closed ideal of $A/R_\al(I)$, so
+$R(I/R_\al(I))$ is a closed ideal of $A/R_\al(I)$ by $(4)_1$(a).   By definition,
+$$R_{\al+1}(I) = q_I^{-1}\left(R(I/R_\al(I))\right),$$
+where $q_I:A \onto A/R_\al(I)$ is the quotient map.   Therefore
+$R_{\al+1}(I)$ is a closed ideal of $q_I^{-1}\left(A/R_\al(I)\right) = A$.
+
+By $(4)_1$(b),
+$$R(I/R_\al(I)) \sseq R(A/R_\al(I)) \cap I/R_\al(I).$$
+Let us write $q_A$ for the quotient map $A \onto A/R_\al(A)$.  Then
+the fact that $R_\al(I) \sseq R_\al(A)$ produces a natural map
+$p:A/R_\al(I) \onto A/R_\al(A)$.   Applying $(3)_1$ to~$p$ gives
+$$R(A/R_\al(A)) \supseteq p(R(A/R_\al(I))) = q_Aq_I^{-1}(R(A/R_\al(I))),$$
+whence
+$$R_{\al+1}(A) = q_A^{-1}(R(A/R_\al(A))) \supseteq q_I^{-1}(R(A/R_\al(I)))
+									\supseteq R_{\al+1}(I).$$
+\end{arbenumerate}
+(It is in proving $(4)_{\al+1}$ that a theory which allows non-closed ideals
+in (4) has problems.    If~$I$ is not closed, then we cannot guarantee that
+$R_\al(I)$ is closed in~$A$, without which $A/R_\al(I)$ is not a normed algebra
+in a quotient norm.)
+%-----------------------------------------------------------------------------
+
+The induction step at limit ordinals is easier and is therefore omitted.
+\Detail{ Suppose that $(1)_\al$,
+$(3)_\al$ and $(4)_\al$ hold for all ordinals $\al < \lm$, where~$\lm$ is a
+limit ordinal.   We show that $R_\lm$ satisfies (1), (3) and (4).
+\begin{arbenumerate}
+\item
+We have
+$$R_\lm(R_\lm(A)) =
+\closure{\bigcup_{\al<\lm} R_\al(R_\lm(A))}.$$
+Now each $R_\al(A)$ is a closed ideal of~$A$ and so of $R_\lm(A)$.  Therefore
+$(4)_\al$ implies
+$$R_\al(R_\al(A)) \sseq R_\al\left(R_\lm(A)\right).$$
+Hence, using $(1)_\al$,
+$$R_\lm(R_\lm(A)) \supseteq \closure{\bigcup_{\al<\lm} R_\al(R_\al(A))}
+= \closure{\bigcup_{\al<\lm} R_\al(A)} = R_\lm(A).$$
+%-------------------------------
+\addtocounter{arbenum}{1}
+\item If $A,B$ are Banach algebras and $\phi:A \onto B$ is a
+continuous epimorphism, then, by $(3)_\al$, we have
+$\phi(R_\al(A))\sseq R_\al(B)$, for each $\al<\lm$.  Therefore
+$$\phi\left(\bigcup_{\al<\lm}R_\al(A)\right)
+=     \bigcup_{\al<\lm}\phi\left(R_\al(A)\right)
+\sseq \bigcup_{\al<\lm}R_\al(B).$$
+Then
+$$\phi(R_\lm(A)) = \phi\left(\closure{\bigcup_{\al<\lm}R_\al(A)}\right)
+\sseq  \closure{\phi\left(\bigcup_{\al<\lm}R_\al(A)\right)}
+\sseq  \closure{\bigcup_{\al<\lm}R_\al(B)} = R_\lm(B).$$
+%-------------------------------
+\item
+If $I$ is a closed ideal of~$A$ then $R_\al(I)$ is a closed ideal of~$A$
+for every $\al<\lm$.  Therefore $\bigcup_{\al<\lm}R_\al(I)$ is an ideal
+of~$A$ and $R_\lm(I)$ is a closed ideal of~$A$.
+Likewise, $R_\al(I) \sseq R_\al(A) \cap I$ for every $\al<\lm$, whence,
+on taking unions and closures, $R_\lm(I) \sseq R_\lm(A) \cap I$.
+\end{arbenumerate}}
+
+The proof of Theorem \ref{T3} is now completed by observing that each of
+properties (1), (3) and (4) for $\Rstar$ follows from the corresponding property
+for $R_\al$ by choosing~$\al$ sufficiently large so that $\Rstar(\Gamma) =
+R_\al(\Gamma)$ for the two algebras~$\Gamma$ involved; \ie for $\Gamma = A$ and
+$\Rstar(A)$ in (1), $\Gamma=A$ and~$B$ in (3) and $\Gamma = I$ and~$A$ in (4).
+\end{Proof}
+
+\begin{cor}\label{C3a}
+The topological radical $\barstar{R}(A)$ of a Banach algebra~$A$ is the
+smallest {\em closed} ideal~$I$ of~$A$ such that $A/I$ is $R$-semisimple.
+\end{cor}
+
+\begin{cor}\label{C4}
+The Baer radical~$\beta$ gives rise to the topological radical $\barstar{\beta}$
+and $\barstar{\beta}(A)$, for a Banach algebra~$A$, is the smallest closed
+ideal~$I$ of~$A$ such that $A/I$ contains no non-zero nilpotent ideals.
+\end{cor}
+
+(We recall that the Baer radical $\beta(A)$ can be characterized as the smallest
+ideal~$I$ of~$A$ such that $A/I$ contains no non-zero nilpotent ideals.)
+
+\Detail{In one direction, $\barstar{\beta}(A)$ is a closed ideal such that
+$\closure{\beta}(A/\barstar{\beta}(A)) = \{0\}$; {\it id est}
+$A/\barstar{\beta}(A)$ contains no non-zero nilpotent ideals.   Conversely,
+let $I$ be a closed ideal such that $A/I$ contains no non-zero nilpotent ideals.
+Then $I \supseteq \beta(A)$, since $\beta(A)$ is the smallest ideal the quotient
+by which contains no non-zero nilpotent ideals.  Since~$I$ is closed,
+$I \supseteq \closure{\beta}(A)$.    Now
+$$(A/\closure{\beta(A)})/(I/\closure{\beta(A)}) \equiv A/I$$
+contains no non-zero nilpotent ideals, so
+$$I/\closure{\beta(A)} \supseteq \beta\left(A/\closure{\beta(A)}\right)$$
+so, since $I/\closure{\beta(A)}$ is closed,
+$$I/\closure{\beta(A)} \supseteq \closure{\beta}\left(A/\closure{\beta(A)}\right)
+                               = \closure{\beta}_2(A)/\closure{\beta(A)}),$$
+so $I \supseteq \closure{\beta}_2(A)$.   The proof that
+$I \supseteq \closure{\beta}_\alpha(A)$ for all ordinals~$\alpha$ proceeds by
+induction in the same way, the limit ordinal step being trivial.   Therefore
+$I \supseteq \barstar{\beta}(A)$.     The proof of the previous corollary is
+similar.}
+
+\begin{Defn}
+Let $R$ be a map associating with each (Banach) algebra~$A$, a (closed)
+ideal $R(A)$.   We define a transfinite sequence $(R^\al)$ by:
+\begin{rmenumerate}
+\item $R^0(A) = A$;
+\item $R^{\al+1}(A) = R(R^\al(A))$,    (so, for example, $R^1 = R$);
+\item for limit ordinals~$\lm$, $$R^\lm(A) = \bigcap_{\al < \lm}R^\al(A).$$
+\end{rmenumerate}
+The transfinite sequence of sets $(R^\al(A))$ is monotonic non-increasing, so it
+must stabilise at the $\al$th stage, where~$\al$ is at most the cardinality
+of~$A$.  We then write $\Rsubstar(A) = R^\al(A) = R^{\al+1}(A)$.
+\end{Defn}
+
+
+\begin{thm}\label{T4}
+If $R$ is an OR (respectively, an OTR), then so is $R^\al$,
+for every ordinal~$\al$, and $\Rsubstar$ is a radical (topological radical).
+\end{thm}
+
+\begin{Proof}
+Again, we prove the topological case, the algebraic case being similar and
+easier.   First we observe that (4) implies that all of the $R_\al(A)$ are
+closed ideals  of~$A$ and hence so is $\Rsubstar(A)$.
+
+The fact that $\Rsubstar$ satisfies condition (1) is easy: because the sequence
+has stabilised,
+$$\Rsubstar(A) = R(\Rsubstar(A)),$$
+It follows that $R^\al(\Rsubstar(A)) = \Rsubstar(A)$
+for all~$\al$, and so $\Rsubstar(\Rsubstar(A)) = \Rsubstar(A)$.
+
+The rest of the proof consists of showing by transfinite induction on~$\al$,
+that $R^\al$ satisfies conditions (2), (3) and (4).    The result is trivially
+true for $\al = 0$, which starts the induction.   Suppose $R^\al$ is an OTR.
+Again, we write $(n)_\al$ to mean condition $(n)$ on $R^\al$.
+\begin{arbenumerate}
+%-------------------------------
+\addtocounter{arbenum}{1}
+\item
+Since $R^{\al+1}(A) \sseq R^\al(A)$, there is a natural continuous homomorphism
+$$A/R^{\al+1}(A) \onto A/R^\al(A).$$   Applying $(3)_\al$ to this map shows that
+$R^\al(A/R^{\al+1}(A))$ maps into $R^\al(A/R^\al(A))$, which is the zero coset,
+by $(2)_\al$.  Therefore $R^\al(A/R^{\al+1}(A))\sseq R^\al(A)/R^{\al+1}(A)$,
+in fact, $R^\al(A/R^{\al+1}(A))$ is a closed ideal of $R^\al(A)/R^{\al+1}(A)$.
+Applying $(4)_1$ to this ideal,
+$$R^{\al+1}(A/R^{\al+1}(A)) = R(R^\al(A/R^{\al+1}(A))) \sseq R(R^\al(A)/R^{\al+1}(A))
+                                                             = \{0\},$$
+where the last step uses $(2)_1$.
+%-------------------------------
+\item
+Suppose $\phi:A \onto B$ is a continuous epimorphism between
+Banach algebras.    By $(3)_\al$, we have $\phi(R^\al(A)) \sseq R^\al(B)$.
+The argument in the algebraic case, continues with
+$$\phi(R^{\al+1}(A)) = \phi(R(R^\al(A))) \sseq R(\phi(R^\al(A)))
+                                                  \sseq R(R^\al(B)),$$
+but this fails in the topological case because, for the last step, we need
+$\phi(R^\al(A))$ to be a {\em closed} ideal of $R^\al(B)$ to apply $(4)_1$.
+Instead, we argue that $\closure{\phi(R^\al(A))}$ is a closed ideal of
+$R^\al(B)$, so, by $(4)_1$,
+$$R\left(\closure{\phi(R^\al(A))}\right)\sseq R(R^\al(B)) = R^{\al+1}(B).$$
+Now let
+$$I = \phi^{-1}\left(\closure{\phi(R^\al(A))}\right) \supseteq R^\al(A).$$
+Then $R^\al(A)$ is a closed ideal of~$I$, so $R^{\al+1}(A) = R(R^\al(A))
+\sseq R(I)$, by $(4)_1$.  Thus, by applying $(3)_1$ to the mapping
+$\phi:I \onto \closure{\phi(R^\al(A))}$, we obtain
+$$\phi(R^{\al+1}(A)) \sseq \phi(R(I)) \sseq
+  R\left(\closure{\phi(R^\al(A))}\right)\sseq R^{\al+1}(B).$$
+%-----------------------------------
+\item
+Suppose~$I$ is a closed ideal of the Banach algebra~$A$.  Then, first, $(4)_\al$(a)
+implies that $R^\al(I)$ is a closed ideal of~$A$ and so, applying $(4)_1$(a)
+to this ideal, we see that $R^{\al+1}(I) = R(R^\al(I))$ is a closed ideal of $A$.
+Secondly, $(4)_\al$(b) implies that
+$R^\al(I) \sseq R^\al(A)$, so $R^\al(I)$ is a closed ideal of $R^\al(A)$, and
+$(4)_1$(b) applied to this ideal gives
+$$R^{\al+1}(I) = R(R^\al(I))\sseq R(R^\al(A)) = R^{\al+1}(A).$$
+%-----------------------------------------------------------------------------
+\end{arbenumerate}
+
+Again, we omit the induction step at limit ordinals, which is straightforward.
+\Detail{Suppose that $(2)_\al$,
+$(3)_\al$ and $(4)_\al$ hold for all ordinals $\al < \lm$, where~$\lm$ is a
+limit ordinal.   We show that $R^\lm$ satisfies (2), (3) and (4).
+\begin{arbenumerate}
+\addtocounter{arbenum}{1}
+\item
+For each $\al<\lm$ we have a natural continuous homomorphism
+$A/R^\lm(A) \onto A/R^\al(A)$.  Applying $(3)_\al$ shows that
+$R^\al(A/R^\lm(A))$ is mapped into $R^\al(A/R^\al(A))$, which is $(0)$,
+by $(2)_\al$; \ie $R^\al(A/R^\lm(A))\sseq R^\al(A)/R^\lm(A)$.  Hence
+$$R^\lm(A/R^\lm(A)) = \bigcap_{\al<\lm}R^\al(A/R^\lm(A))
+    \sseq \bigcap_{\al<\lm}R^\al(A)/R^\lm(A) = R^\lm(A)/R^\lm(A) = (0).$$
+%-------------------------------
+\item If $A,B$ are Banach algebras and $\phi:A \onto B$ is a
+continuous epimorphism, then, by $(3)_\al$, we have
+$\phi(R^\al(A))\sseq R^\al(B)$, for each $\al<\lm$.  Therefore
+$$\phi(R^\lm(A)) = \phi\left(\bigcap_{\al<\lm}R^\al(A)\right)
+             \sseq \bigcap_{\al<\lm}\phi(R^\al(A))
+             \sseq \bigcap_{\al<\lm}R^\al(B) = R^\lm(B).$$
+%-------------------------------
+\item
+If $I$ is a closed ideal of~$A$ then $R^\al(I)$ is a closed ideal of~$A$ for
+every $\al<\lm$.  Therefore $R^\lm(I) =\bigcap_{\al<\lm}R^\al(I)$ is a closed
+ideal of~$A$.  Likewise, $R^\al(I) \sseq R^\al(A) \cap I$ for every $\al<\lm$,
+whence, on taking intersections, $R^\lm(I) \sseq R^\lm(A) \cap I$.
+\end{arbenumerate}}
+The proof is completed by observing that each of
+properties (1), (3) and (4) for $\Rsubstar$ follows from the corresponding property
+for $R^\al$ by choosing~$\al$ sufficiently large so that $\Rsubstar(\Gamma) =
+R^\al(\Gamma)$ for the two algebras~$\Gamma$ involved.
+%\ie for $\Gamma = A$ and $A/\Rsubstar(A)$ in (1), $\Gamma=A$ and~$B$ in (3) and
+%$\Gamma = I$ and~$A$ in (4).
+\end{Proof}
+
+\begin{thm}\label{T4.1}
+Let~$R$ be a UR (UTR) and~$S$ an OR (OTR), with $R \le S$.
+Then $\Rstar \le S_*$.   In particular, if~$S$ is a radical (topological radical),
+then $\Rstar \le S$; if~$R$ is a radical (topological radical), then $R \le S_*$.
+If~$R$ is a radical and~$S$ is a topological radical, with $R\le S$, then
+$\barstar R \le S$.
+\end{thm}
+
+\begin{Proof}
+The proof consists of three steps.
+\begin{alenumerate}
+\item
+We first show, by transfinite induction on~$\al$, that $R_\al \le S$.   This
+is trivial for $\al=0$ and the step to limit ordinals is easy.   For the
+successor step, suppose $R_\al \le S$. Then
+$$R_{\al+1}(A)/R_\al(A) = R\left(A/R_\al(A)\right) \sseq S\left(A/R_\al(A)\right).$$
+Since $R_\al(A) \sseq S(A)$, we have a natural (continuous) epimorphism of
+$A/R_\al(A)$ onto $A/S(A)$.   This maps $S\left(A/R_\al(A)\right)$ into
+$S\left(A/S(A)\right) = \{0\}$.  Therefore
+$$S\left(A/R_\al(A)\right) \sseq S(A)/R_\al(A),$$
+so
+$$R_{\al+1}(A)/R_\al(A) \sseq S(A)/R_\al(A),$$
+so $R_{\al+1}(A)\sseq S(A)$.
+\item
+Next, we show that $R \le S^\bt$ for all~$\bt$.   This is easier, the
+successor step being that if $R \le S^\bt$ then $R(A)$ is a (closed) ideal
+in $S^\bt(A)$, so
+$$R(A) = R(R(A)) \sseq S(R(A)) \sseq S(S^\bt(A)) = S^{\bt+1}(A).$$
+\item
+Since every $R_\al$ is UR (UTR), we can apply step (b)
+to $R_\al$ in place of~$R$ to get $R_\al(A) \le S^\bt(A)$ for all ordinals
+$\al,\bt$ and all (Banach) algebras~$A$.  Hence $\Rstar(A) \sseq S_*(A)$.
+\end{alenumerate}
+\end{Proof}
+
+\begin{cor}\label{C4.1}
+If~$R$ is a UR (UTR), then~$\Rstar$ is the smallest (topological) radical greater
+than or equal to~$R$: \ie $\Rstar \ge R$ and if $S$ is a (topological) radical
+with $S \ge R$, then $\Rstar \le S$.    Likewise, if~$S$ is an OR (OTR), then
+$S_*$ is the greatest (topological) radical less than or equal to~$S$.
+\end{cor}
+%==============================================================================
+\section{Hereditary radicals}\label{S5a}
+
+It is natural to ask whether, in Theorem \ref{T2}, the map~$R$ satisfying
+axiom~(5) would imply $\Rbar$ satisfying~(5).    The answer is negative,
+as the following example shows.
+
+\begin{Example}\label{Ex5}
+Let~$A$ be the commutative Banach algebra generated by $\{X_n: n=1,2,3,\dots\}$
+subject to the relations $X_n^{n+1}=0$ $(n=1,2,3,\dots)$ and $X_iX_j=0$
+$(i \ne j)$.  That is, if $A_0$ is the algebra defined, algebraically, by
+these generators and relations, with the norm given by
+$$\left\|\sum_{1\le j\le i} \lambda_{ij}X_i^j\right\|
+                                    = \sum_{1\le j\le i} |\lambda_{ij}|,$$
+then~$A$ is the completion of $(A_0,\|.\|)$.  A typical element of~$A$ is just
+an infinite sum $x = \sum_{1\le j\le i} \lambda_{ij}X_i^j$ with
+$\|x\| = \sum_{1\le j\le i} |\lambda_{ij}| < \infty$.
+
+Let $y = \sum_{i=1}^\infty 2^{-i}X_i$ and let~$B$ be the set of elements
+of~$A$ of the form $\sum_{2\le j\le i} \lambda_{ij}X_i^j$.    Then
+$I = \C y + B$ is a closed ideal of~$A$.   Now an element
+$\sum_{1\le j\le i} \lambda_{ij}X_i^j$ of~$A$ is nilpotent if and only if
+$\sup\{i/j:\lambda_{ij} \ne 0\} < \infty$ and, since~$A$ is commutative,
+$\beta(A)$ and $\beta(I)$ are just the sets of nilpotent elements of~$A$ and~$I$,
+respectively.  Thus $\overline{\beta}(A) = A$ and $\overline{\beta}(I) = B$;
+so $\overline{\beta}(A) \cap I \not\sseq \overline{\beta}(I)$.
+\end{Example}
+
+\begin{Remark}
+In this example (5) seems to fail in a rather trivial way.  Indeed, for
+every hereditary radical~$R$, if~$I$ is a closed ideal in a Banach
+algebra~$A$,  we have $(\Rbar(A) \cap I)^2 \sseq \Rbar(I)$.  One consequence of this
+is that if $R \ge \beta$ then $\Rbar(A) \cap I \sseq \Rbar_2(I)$, where
+$\Rbar_2$ is constructed from $\Rbar$ as in Definition \ref{D3}.
+\Detail{Let $x,y \in \Rbar(A) \cap I$.  There exist $x_n \in R(A)$ $(n =
+1,2,3,\dots)$ with $x_n \to x$.   Then $x_ny \in R(A)I \sseq R(A) \cap I \sseq
+R(I)$, because~$R$ is hereditary.  So $xy \in \Rbar(I)$, whence the result.
+
+The second statement follows because the condition $R \ge \beta$ is equivalent
+to saying that every nilpotent ideal of an algebra~$A$ is contained in $R(A)$;
+a property sometimes labelled {\it supernilpotent}.}
+It is tempting to conjecture that this will form the start of a
+transfinite induction leading to $\barstar{R}$ being hereditary, but our
+attempts to carry out this plan have been thwarted by that perennial problem of
+Banach algebra theory: the fact that the sum of two closed ideals is not
+necessarily closed.  We do not even know whether or not $\barstar{\beta}$ is
+hereditary.
+\end{Remark}
+
+
+
+%==============================================================================
+\section{The TT radicals}\label{S6}
+
+
+\begin{thm}\label{T5}
+For $n = 1,2,\dots,\infty$, the map $A \to T_n(A)$ which associates with
+every Banach algebra~$A$ its topologically $n$-transitive radical is a
+hereditary topological radical.
+\end{thm}
+
+\begin{Proof}
+\begin{arbenumerate}
+\item follows from (5) below and (2) and (3) are straightforward.
+\Detail{For (2) we observe that
+every continuous $n$-TT representation $\pi:A \to \LX$ induces a continuous
+$n$-TT representation $\tilde\pi:A/T_n(A) \to \LX$ with kernel $(\ker\pi)/T_n(A)$.
+Therefore the intersection of all the kernels of continuous $n$-TT representations
+of $A/T_n(A)$ is zero.
+
+To show (3), we argue that if $\phi:A \onto B$ is a continuous epimorphism, then
+every continuous $n$-TT representation $\pi:B \to \LX$ induces a continuous
+representation $\pi\phi:A \to \LX$, which is $n$-TT (because~$\phi$ is
+surjective).  The intersection of the kernels of these representations of~$A$ is
+$\phi^{-1}(T_n(B))$.   Thus $T_n(A)\sseq\phi^{-1}(T_n(B))$, whence
+$\phi(T_n(A))\sseq T_n(B)$.}
+\addtocounter{arbenum}{2}
+%--------------------------------------
+\item(a)
+We must show that if~$I$ is a closed ideal of~$A$, then  $T_n(I)$ is an ideal
+of~$A$.   Suppose $a\in A$ and $b\in T_n(I)$; then $\pi(b) = 0$ for every
+continuous $n$-TT representation~$\pi$ of~$I$ and we need to show that
+$\pi(ab) = 0$ and $\pi(ba) = 0$ for all such representations.
+
+Consider $\pi(ab)$ where $\pi:I \to \LX$ is $n$-TT.  If $x \in X$ and $c \in I$
+then
+$$\pi(c)\pi(ab)x = \pi(cab)x = \pi(ca)\pi(b)x = 0.$$
+This, for all $c\in I$, implies $\pi(ab)x=0$, because~$\pi$ is TI.   Hence
+$\pi(ab) = 0$.  Likewise, $\pi(ba)\pi(c)x = \pi(b)\pi(ac)x = 0$ and
+$\{\pi(c)x: c \in I,\; x\in X\}$ is dense in~$X$, so $\pi(ba)=0$.
+%--------------------------------------
+\addtocounter{arbenum}{-1}
+\item(b)
+Every continuous representation~$\pi$ of~$A$ restricts to a continuous
+representation of a closed ideal~$I$.  It suffices to show that, for $n < \infty$,
+if~$\pi$ is $n$-TT then $\pi|I$ is $n$-TT or zero.    It will then follow that
+$T_n(I) \sseq T_n(A)$ for all~$n$. \detail{If $a \in I\setminus T_n(A)$, then
+there is a continuous $n$-TT representation~$\pi$ such that $\pi(a) \neq 0$, so
+$\pi|I$ is a continuous $n$-TT representation of~$I$ with $(\pi|I)(a) \neq 0$,
+so $a \nin T_n(I)$.}
+
+We begin by showing that if $\pi|I$ is non-zero, then it is TI.  To see this,
+suppose $x,y \in X$ with $x \neq 0$ and $\e>0$; let~$b$ be any element of~$I$
+such that $\pi(b)x \neq 0$.  (If no such~$b$ exists, then $\pi(I)(\pi(A)x) \sseq
+\pi(IA)x \sseq \pi(I)x = \{0\}$, so $\pi(I)X = 0$, contrary to assumption.)   We
+may then find $a \in A$ such that $\|\pi(a)(\pi(b)x) - y\| < \e$, so we have
+$\|\pi(ab)x - y\| < \e$ and $ab \in I$.
+
+We now show that $\pi|I$ is $n$-TT.  Let
+$x_1,\dots,x_n, y_1,\dots,y_n \in X$ with $x_1,\dots,x_n$ linearly independent
+and $\e > 0$.  Choose $\eta > 0$ such that every set $\{z_1,\dots,z_n\}$ with
+$\|z_i - x_i\| < \eta$ $(1 \le i \le n)$ is linearly independent.  Since~$\pi$
+restricts to a TI representation on~$I$, by the above, we can find, for each~$i$
+an element $b_i \in I$ such that $\|\pi(b_i)x_i - x_i\| < \eta/2n$.    We then
+find $c_i \in A$ $(1 \le i \le n)$ such that
+$$\|\pi(c_i)x_j - \delta_{ij}x_i\| < \eta/2n\|\pi(b_i)\| \qquad (1 \le i,j \le n).$$
+Then
+$$\|\pi(b_ic_i)x_j - \delta_{ij}\pi(b_i)x_i\| < \eta/2n \qquad (1 \le i,j \le n).$$
+So
+$$\|\pi(b_ic_i)x_j - \delta_{ij}x_i\| < \eta/n \qquad (1 \le i,j \le n).$$
+Let
+$$b = \sum_{i=1}^n b_ic_i \in I.$$
+Then
+$$\|\pi(b)x_j - x_j\| < \eta \qquad (1 \le j \le n).$$
+Therefore the set $\{\pi(b)x_1,\dots,\pi(b)x_n\}$ is linearly independent.
+Let $a \in A$ be such that
+$$\|\pi(a)\pi(b)x_j - y_j\| < \e$$
+and $ab \in I$ is the desired element such that $\pi(ab)$ sends $x_j$ near to
+$y_j$ for all~$j$.
+%-------------------------------------------------------------------------
+\item The fact that, for every closed ideal~$I$ of a Banach algebra, $T_n(I)
+\supseteq T_n(A) \cap I$ follows from Lemma \ref{L1} below.
+\end{arbenumerate}
+\end{Proof}
+
+\begin{lemma}\label{L1}
+If~$I$ is a closed ideal of a Banach algebra~$A$ and $1 \le n \le \infty$,
+then for every continuous $n$-TT representation~$\pi$ of~$I$ on a Banach space
+$(X,\|.\|)$ there is a continuous $n$-TT representation~$\rho$ of~$A$ on a
+Banach space $(W,\nnY{.})$ such that $\ker\pi = \ker\rho \cap I$.
+\end{lemma}
+
+\begin{PoL}
+Let $\pi:I\to \LX$ be a continuous TI representation of the ideal~$I$ on a
+Banach space~$X$.   We shall describe the construction of a continuous
+representation $\rho:A\to\LW$ and then show that, for every $k < \infty$,
+if~$\pi$ is $k$-TT, then so is~$\rho$.
+
+Let
+$$Y = \pi(I)X = \left\{\sum_{i=1}^n \pi(b_i)x_i:
+                    b_i\in I,\; x_i\in X \;(1 \le i \le n),\; n=1,2,3,\dots\right\}$$
+with norm
+$$\nnY{y} = \inf\left\{\sum_{i=1}^n \|b_i\|\,\|x_i\|:
+           y = \sum_{i=1}^n \pi(b_i)x_i  \mbox{ as above}\right\}.$$
+Let~$Z$ be the completion of $(Y,\nnY{.})$. Then the inclusion map $Y \to X$ is
+continuous of norm at most $\|\pi\|$ and so extends to a continuous map
+$\theta:Z \to X$.  Let $(W,\nnY{.}) = (Z,\nnY{.})/\ker\theta$ and denote
+by~$\tilde\theta:W \to X$ the injective map induced by~$\theta$.
+
+We wish to define $\pi_1:A \to \LY$ by
+$$\pi_1(a)\left(\sum_{i=1}^n \pi(b_i)x_i\right) = \sum_{i=1}^n \pi(ab_i)x_i
+                  \qquad(b_i\in I,\; x_i\in X \;(1 \le i \le n),\; n=1,2,3,\dots),$$
+but we first need to show that this is well defined.   If
+$$\sum_{i=1}^n \pi(b_i)x_i = \sum_{j=1}^m \pi(b_j')x_j',$$
+then, for all $c \in I$,
+\begin{eqnarray*}
+\pi(c)\left(\sum_{i=1}^n \pi(ab_i)x_i\right)
+& = & \sum_{i=1}^n\pi(cab_i)x_i \\
+& = & \pi(ca)\sum_{i=1}^n\pi(b_i)x_i \\
+& = & \pi(ca)\sum_{j=1}^m\pi(b_j')x_j' \\
+& = & \sum_{j=1}^m\pi(cab_j')x_j' \\
+& = & \pi(c)\left(\sum_{j=1}^m \pi(ab_j')x_j'\right).
+\end{eqnarray*}
+Because~$\pi$ is TI, it follows that
+$$\sum_{i=1}^n \pi(ab_i)x_i = \sum_{j=1}^m \pi(ab_j')x_j'.$$
+
+To prove that $\pi_1(a) \in \LY$ for all $a\in A$ and that~$\pi_1$ is
+continuous, we note that, for every presentation
+$$y = \sum_{i=1}^n \pi(b_i)x_i$$
+of a given element $y \in Y$ we have
+\begin{eqnarray*}
+\nnY{\pi_1(a)y}
+& = & \bignnY{\sum_{i=1}^n \pi(ab_i)x_i} \\
+&\le& \sum_{i=1}^n \|ab_i\|\,\|x_i\| \\
+&\le& \|a\|\sum_{i=1}^n \|b_i\|\,\|x_i\|.
+\end{eqnarray*}
+It follows that
+$$\nnY{\pi_1(a)y} \le \|a\|\,\nnY{y}.$$
+
+We can now extend each $\pi_1(a) \in \LY$ to $\pi_2(a) \in \LZ$ by
+continuity, thus defining a continuous representation $\pi_2:A \to \LZ$.
+For $b \in I$, and $y = \sum_{i=1}^n \pi(b_i)x_i \in Y$ we have
+$$\pi_1(b)(y) = \sum_{i=1}^n \pi(bb_i)x_i
+                  = \sum_{i=1}^n \pi(b)\pi(b_i)x_i
+                  = \pi(b)y;$$
+\ie
+$$\pi_2(b)(y)   = \pi(b)(\theta(y)).$$
+By continuity (\ie $\pi_2(b) \in \LZ$, $\pi(b) \in \LX$ and
+$\theta:Z \to X$ being continuous) and the fact that~$Y$ is dense in~$Z$,
+it follows that
+\begin{equation} \label{E1}
+\pi_2(b)(z) = \pi(b)(\theta(z)) \qquad (z \in Z,\; b \in I).
+\end{equation}
+Let $a \in A$, $z \in Z$; then for all $c \in I$  we have
+$$\pi(c)\theta(\pi_2(a)z) = \pi_2(c)\pi_2(a)z = \pi_2(ca)z = \pi(ca)\theta(z).$$
+Therefore, if $\theta(z)=0$ then $\pi(c)\theta(\pi_2(a)z) = 0$ for all $c \in I$
+and so, because~$\pi$ is TI on~$X$, we have $\theta(\pi_2(a)z) = 0$.   Thus, for
+each $a \in A$, there is a well-defined mapping $\rho(a):W \to W$ such that
+$$\rho(a)(z + \ker\theta) = \pi_2(a)z + \ker\theta.$$
+Clearly~$\rho$ is a continuous representation of~$A$ on the Banach space~$W$.
+Equation (\ref{E1}) implies that
+\begin{equation} \label{E3}
+\rho(b)(w) = \pi(b)(\tilde\theta(w)) \qquad (w \in W,\; b \in I).
+\end{equation}
+
+Now suppose that~$\pi$ is $k$-TT with $k < \infty$.
+We show that~$\rho$ is $k$-TT.  Since~$Y/\ker\theta$ is dense in~$W$, it
+suffices to show that for every linearly independent
+$w^{(1)},\dots,w^{(k)} \in W$, every $y^{(1)},\dots,y^{(k)} \in Y/\ker\theta$
+and $\e > 0$ there is an $a \in A$ with
+$\nnY{\rho(a)w^{(j)}- y^{(j)}} < \e$ $(1\le j\le k)$.    We shall, in fact,
+show that this can be done with an $a \in I$: thus (by (\ref{E3})) we shall
+show
+$$\nnY{\pi(a)x^{(j)} - y^{(j)}} < \e\qquad(1\le j\le k),$$
+where $x^{(j)} = \tilde\theta(w^{(j)})$.   Since~$\tilde\theta$ is injective,
+the set $\{x^{(1)},\dots,x^{(k)}\}$ is linearly independent.
+
+We can write $y^{(j)} = \sum_{i=1}^n \pi(b_i)x_i^{(j)}$ $(1\le j\le k)$, with
+the $b_i\in I$,
+$x_i^{(j)}\in X$, by the simple expedient of making the sets $N_j =
+\{i:x_i^{(j)}\ne 0\}$ disjoint.  Because the original representation~$\pi$ is
+$k$-TT, we can find $c_i \in I$ $(1 \le i \le n)$ so that
+$$\|\pi(c_i)x^{(j)} - x_i^{(j)}\| < {\e\over n\|b_i\|}
+                                \qquad (1 \le i \le n,\;1\le j\le k).$$
+Let $a = \sum_{i=1}^n b_ic_i$.
+Then
+\begin{eqnarray*}
+\nnY{\pi(a)x^{(j)} - y^{(j)}}
+& = & \bignnY{\sum_{i=1}^n \pi(b_ic_i)x^{(j)} - \sum_{i=1}^n \pi(b_i)x_i^{(j)}}\\
+& = & \bignnY{\sum_{i=1}^n \pi(b_i)\left(\pi(c_i)x^{(j)} - x_i^{(j)}\right)} \\
+& \le & \sum_{i=1}^n \|b_i\|\,\|\pi(c_i)x^{(j)} - x_i^{(j)}\|, \qquad \mbox{by the definition of $\nnY{.}$,}\\
+& < & \e.
+\end{eqnarray*}
+
+Finally, equation (\ref{E3}), together with the fact that $\tilde\theta(W) =
+\theta(Z)$ is dense in~$X$ shows that if $b \in I$, then $\rho(b) = 0$ if and
+only if $\pi(b) = 0$.  Thus $\ker\pi = \ker\rho \cap I$.
+\end{PoL}
+%==============================================================================
+\section{Standard TI representations}\label{S7}
+
+Let us recall that a standard TI representation of a normed algebra~$A$
+is a representation~$\pi$ of~$A$ on a Banach space~$X$ which is of the
+form $\pi = \phi\rho$ where~$\phi$ is a continuous homomorphism of~$A$ onto
+a dense subalgebra of a Banach algebra~$B$ and~$\rho$ is a strictly irreducible
+representation of~$B$ on~$X$.
+
+Notice that there is no point in broadening this definition by dropping the
+completeness requirements on either~$X$ or~$B$, separately.   We have already
+remarked that if~$X$ were incomplete, or just a general linear space then it
+would automatically have a suitable Banach space structure.   If~$B$ were
+incomplete, we should require that~$\rho$ be continuous, in order to
+make~$\pi$ continuous.  This being so, we need only complete~$B$ and
+extend~$\rho$ to the completion to regain our original scenario.
+
+Since~$\rho$ may be factored through the primitive algebra $B/\ker\rho$, we can
+characterize $S(A)$ as the intersection of the kernels of the continuous
+homomorphisms of~$A$ onto dense subalgebras of primitive (or semisimple) Banach
+algebras.
+
+\begin{thm} \label{T8}
+The map $A \to S(A)$, defined for Banach algebras~$A$, is an OTR.
+Hence $S_*$ is a topological radical.
+\end{thm}
+
+\begin{Proof}
+Notation: throughout this proof,~$B$ will be an arbitrary semisimple Banach
+algebra and~$\phi$ mapping into~$B$ will be a continuous homomorphism with dense
+range.   We shall use the characterisation of $S(A)$ as the intersection of the
+kernels of such mappings $\phi:A \to B$.
+\begin{arbenumerate}
+\addtocounter{arbenum}{1}
+\item
+Every $\phi:A\to B$ induces a continuous homomorphism $\tilde\phi:A/S(A)\to B$
+with the same range.   The intersection of the kernels of these induced
+homomorphisms is zero, so $S(A/S(A)) = \{0\}$.
+%-----------------------------------------------------------------------------
+\item
+If $A_1$, $A_2$ are Banach algebras and $\psi:A_1\to A_2$ is a continuous
+epimorphism, then every $\phi:A_2\to B$ gives rise to a continuous
+homomorphism $\phi\psi:A_1\to B$ with dense range.  The fact that
+$\psi(S(A_1)) \sseq S(A_2)$ follows immediately.
+%-----------------------------------------------------------------------------
+\item(a)
+Let~$I$ be a closed ideal of~$A$ and let $a \in A$, $b \in S(I)$; we show that
+$ab \in S(I)$, the case of~$ba$ being similar.  Given $\phi:I \to B$ as above,
+we have $\phi(b) = 0$.   For arbitrary $c \in I$ we have
+$$\phi(c)\phi(ab) = \phi(cab) = \phi(ca)\phi(b) = 0.$$
+Since $\phi(I)$ is dense in~$B$, it follows that $B\phi(ab) = \{0\}$ and
+hence, since~$B$ is semisimple, that $\phi(ab) = 0$.
+%--------------------------------------
+\addtocounter{arbenum}{-1}
+\item(b)
+Let~$I$ be a closed ideal of~$A$.   Let $\phi:A\to B$ as usual.  Now $I \idealin
+A$ implies $\phi(I) \idealin B$, (because $\phi(A)$ is dense in~$B$).  Therefore
+$\closure{\phi(I)} \idealin B$.    Therefore $\closure{\phi(I)}$ is semisimple; (the
+Jacobson radical is hereditary).  Thus $\phi:I \to \closure{\phi(I)}$ is a
+continuous homomorphism into a semisimple Banach algebra with dense range.
+The fact that $S(I) \sseq S(A) \cap I$ follows immediately.
+\end{arbenumerate}
+
+\end{Proof}
+
+
+We can summarize the relationships between our various topological radicals as
+follows.
+
+\begin{thm}\label{T12}
+The topological radicals $S_*$ and $T_n$ $(1 \le n \le \infty)$
+are related to the closed-Baer radical $\barstar\beta$  and the Jacobson
+radical~$J$ by the inequalities
+$$\barstar\beta \le T_1 \le T_m \le T_n \le T_\infty \le S_* \le J
+                                       \qquad (1 \le m \le n \le \infty).$$
+\end{thm}
+
+\begin{Proof}
+The inequality $\overline\beta \le T_1$ is Proposition \ref{P1} and the other
+inequalities are trivial.   The result follows by Theorem~\ref{T4.1}.
+\end{Proof}
+
+\vspace{2ex}
+The main result of this section is that the last of these inequalities is
+proper.
+
+\begin{Example}\label{MainEx}
+We construct an example of a radical Banach algebra~$A$ which has an
+injective, dense embedding~$\phi$ into a semisimple Banach algebra~$B$.  Hence,
+$S(A) = \{0\}$.
+
+The algebra~$B$ is the algebra regrettably called~$A$ in \cite{PGD12}.   Let $A_0$
+be the algebra on symbols $X_1, X_2, \dots$ subject to the following relations:
+every monomial $X_{i_1}\dots X_{i_r}$ containing more than~$n$ occurrences of
+$X_n$, where $n = \max\{i_1,\dots,i_r\}$, must vanish.   It follows that
+$X_{i_1}\dots X_{i_r} = 0$ if $r \ge (n+1)!$, where $n = \max\{i_1,\dots,i_r\}$.
+This algebra is given a norm $\|.\|$ by
+$$\left\|\sum_{i=0}^n \lambda_iM_i\right\| = \sum_{i=0}^n |\lambda_i|,$$
+where the $\lambda_i$ are scalars and the $M_i$ monomials.   The Banach
+algebra~$B$ is the completion of $(A_0,\|.\|)$.
+
+We shall construct the radical Banach algebra~$A$ as the completion of
+$A_0$ in a larger norm, so that there is a natural continuous embedding
+of~$A$ into~$B$, whose range contains $A_0$ and is therefore dense.
+
+For each monomial $M = X_{i_1}\dots X_{i_r}$, we define
+$n(M) = \max\{i_1,\dots,i_r\}$ and \linebreak $\nn{M} = ((n+1)!)^{(n+1)!}$.
+Consider a product of $2k$ monomials $M_1\dots M_{2k}$, where $k \ge 1$.
+We distinguish three cases.
+\begin{alenumerate}
+\item If $(n(M_i)+1)! \le k$ $(1\le i\le k)$, then $M_1\dots M_k = 0$.
+\item If $(n(M_i)+1)! \le k$ $(k+1\le i\le 2k)$, then
+$M_{k+1}\dots M_{2k} = 0$.
+\item If neither (a) nor (b) hold, then there are at least two values of~$i$ for
+which \linebreak
+$(n(M_i)+1)! > k$ and it follows from the definition of $\nn{M_i}$ that
+\begin{equation}\label{E2}
+\nn{M_1\dots M_{2k}} \le k^{-k} \nn{M_1}\dots\nn{M_{2k}}.
+\end{equation}
+\end{alenumerate}
+In all three cases, (\ref{E2}) holds.
+
+We extend the norm to general elements of $A_0$ by defining
+$$\bignn{\sum_{i=0}^n \lambda_iM_i} = \sum_{i=0}^n |\lambda_i|\nn{M_i},$$
+where the $\lambda_i$ are scalars and the $M_i$ monomials.
+We then define~$A$ to be the completion of $A_0$ in this norm, which is
+clearly identified with the set of infinite sums
+$$\sum_{i=0}^\infty \lambda_iM_i$$ such that
+$$\sum_{i=0}^n |\lambda_i|\nn{M_i} < \infty.$$
+Hence the natural embedding of $A_0$ into~$B$ extends to a natural
+embedding of $A$ into~$B$.
+
+It follows from (\ref{E2}) that
+$$\nn{x_1\dots x_{2k}} \le k^{-k} \nn{x_1}\dots\nn{x_{2k}}$$
+for all $x_1,\dots,x_{2k} \in A$.   Since
+$$\left(k^{-k}\right)^{1/2k} \to 0$$
+as $k\to\infty$, we see that~$A$ is topologically nilpotent, and
+so {\em a fortiori} radical.
+\end{Example}
+
+Notice that the TI representations of~$A$ restrict to TI representations
+of the (incomplete) normed algebra $A_0$.    This is interesting, since
+$A_0$ is locally nilpotent and hence nil, but not semiprime.   This example
+prevents us from extending Proposition \ref{P1} to the Levitzki and nil radicals.
+
+\begin{cor}\label{C11}
+There is a locally nilpotent normed algebra with a separating family of
+continuous TI representations.
+\end{cor}
+
+It would be interesting to know how general this construction can be made,
+so as to produce a wide variety of $S_*$-semisimple, Jacobson-radical algebras.
+The following theorem is a first step in that direction.
+
+\begin{thm}\label{T9}
+Let $(B,\|.\|)$ be a Banach algebra with an increasing family of nilpotent subalgebras
+$M_n$ $(n = 1,2,3,\dots)$ such that $M_n^n = \{0\}$.   Then there is a radical
+Banach algebra~$(A,|.|)$ and a continuous injective homomorphism $\phi:A \to B$
+such that $\bigcup_{n=1}^\infty M_n \sseq \phi(A) \sseq B$.
+\end{thm}
+
+\begin{Proof}
+Let $M = \bigcup_{n=1}^\infty M_n$.  For $x \in M$ define
+$$|x| := \inf\left\{\sum_{i=1}^k \nu(i)\|m_i\|: x = \sum_{i=1}^k m_i,\quad
+                                                        m_i \in M_i\right\},$$
+where the increasing sequence of positive real numbers $\nu(i)$ will be defined later.
+
+The function $|.|$ is clearly a norm on~$M$.   If $\nu(i) \ge 1$ for all~$i$
+then $|.|$ is submultiplicative and $\|x\| \le |x|$ for all $x \in M$.
+\Detail{If
+$$x = \sum_{i=1}^k m_i \qquad \mbox{and} \qquad y = \sum_{j=1}^\ell m_i'$$
+then
+$$xy = \sum_{i,j} m_im_j'.$$
+Since the $M_n$ are subalgebras, $m_im_j' \in M_{\max\{i,j\}}$, so
+$$|xy| \le \sum_{i,j} \nu(\max\{i,j\})\|m_i\|\,\|m_j'\|
+       \le \sum_{i,j} \nu(i)\nu(j)\|m_i\|\,\|m_j'\|
+		  = |x|\,|y|.$$
+If $x \in M$ and $x = \sum_{i=1}^k m_i$ as above, then
+$$\|x\| \le \sum_{i=1}^k \|m_i\| \le \sum_{i=1}^k \nu(i)\|m_i\|.$$
+Therefore $\|x\| \le |x|$ for all $x \in M$.}
+Let~$A$ be the completion of $(M,|.|)$.
+
+Now consider $x^{(1)}, \dots,x^{(2N)} \in M$ with
+$$x^{(n)} = \sum_{i_n} m_{i_n}^{(n)}\qquad(1 \le n \le 2N),$$
+for some $m_{i_n}^{(n)}\in M_{i_n}$.  Then
+$m_{i_1}^{(1)}\dots m_{i_{2N}}^{(2N)} \in M_r$ where
+$r = \max\{i_1,\dots,i_{2N}\}$, so
+\begin{eqnarray}
+\left|x^{(1)}\dots x^{(2N)}\right|
+& \le & \sum_{i_1}\dots\sum_{i_{2N}}\max_n\nu(i_n)\|m_{i_1}^{(1)}\dots m_{i_{2N}}^{(2N)}\|\nonumber\\
+& \le & \sum_{i_1}\dots\sum_{i_{2N}}{\nu(i_1)\dots\nu(i_{2N})\over\nu(N)}
+                                  \|m_{i_1}^{(1)}\dots m_{i_{2N}}^{(2N)}\|\label{keystep}\\
+& \le & \sum_{i_1}\dots\sum_{i_{2N}}{\nu(i_1)\dots\nu(i_{2N})\over\nu(N)}
+                                     \|m_{i_1}^{(1)}\|\dots\| m_{i_{2N}}^{(2N)}\|, \nonumber
+\end{eqnarray}
+where (\ref{keystep}) holds because at least two of the $i_j$ exceed~$N$; for
+otherwise, the sequence $m_{i_1}^{(1)},\dots, m_{i_{2N}}^{(2N)}$ would contain
+at least~$N$ consecutive terms belonging to $M_N$ and therefore
+$m_{i_1}^{(1)}\dots m_{i_{2N}}^{(2N)}= 0,$ since $M_N^N=\{0\}$.  Thus
+$$|x^{(1)}\dots x^{(2N)}| \le {1\over\nu(N)}|x^{(1)}|\dots |x^{(2N)}|$$
+for all $x^{(1)}, \dots,x^{(2N)}$ in~$M$ and hence, by continuity, in~$A$.
+Taking $\nu(n) = n^n$ makes~$A$ topologically nilpotent, and hence radical.
+
+The inequality $\|x\| \le |x|$ $(x \in M)$ shows that the natural embedding
+$\phi: (M,|.|) \to (B,\|.\|)$ is continuous and therefore extends to a
+continuous homomorphism $\phi:A \to B$.   However, it is not clear that
+$\phi:A \to B$ is necessarily injective.   If not, we obtain an injective map
+by simply replacing~$A$ by $A/\ker\phi$.
+\end{Proof}
+%==============================================================================
+\section{Radicals in incomplete algebras}\label{S10}
+
+Our theory of topological radicals can be developed equally well in
+the context of incomplete normed algebras: simply replace `Banach algebra' by
+`normed algebra' throughout Section~\ref{S5}.   Section~\ref{S6} may be treated
+likewise: the maps $T_n$ are topological radicals for normed algebras.  In
+Section~\ref{S7}, the same recipe applies,  except that the algebra~$B$ must
+remain Banach and the inequality $S_* \le J$ of Corollary~\ref{T12} no longer
+applies (see Example~\ref{Ex4} below).
+
+This alternative theory has the advantage that its axiom (3) gives information
+about the behaviour of the radical under all continuous homomorphisms, not just
+those with complete range.    However, it has a major disadvantage: it excludes
+the Jacobson radical because the Jacobson radical of an incomplete normed
+algebra is not necessarily closed.
+
+\begin{Example}\label{Ex3}
+Let $B$ be the subalgebra of $(C[0,1],*)$ consisting of the polynomials.
+Then~$B$ is algebraically isomorphic to the subalgebra of $\C[X]$
+consisting of polynomials without constant term.   Therefore
+$J(B) = \{0\}$, indeed,~$B$ has a separating family of
+(discontinuous) transitive 1-dimensional representations.
+
+Now let $A$ be the subalgebra of $(C[0,1],*)$ consisting of all functions
+which are polynomial on a neighbourhood of~0.   There is an obvious
+homomorphism of~$A$ onto~$B$ and so the Jacobson radical $J(A)$ is
+contained in the inverse image of $\{0\}$; that is, the set of functions
+vanishing in a neighbourhood of~$0$.  The reverse inclusion is
+obvious: in fact, if~$f \in A$ vanishes on a neighbourhood of~$0$,
+then~$f$ is nilpotent in~$A$.  Thus
+$$J(A) = \{f \in A: f \equiv 0 \mbox{ on a neighbourhood of }0\},$$
+which is not closed: $\closure{J(A)}$ is the ideal of functions
+vanishing at zero.
+
+\detail{Alternatively: if $f(x) = p(x)$ $(0 \le x \le \delta)$ for some
+non-zero polynomial~$p$ and some $\delta > 0$, then $f$ cannot be
+quasi-regular, for if~$g$ were a quasi-inverse for~$f$ in~$A$ then
+$g(x) = q(x)$ $(0 \le q(x) \le \e)$ for some polynomial~$q$ and some
+$\e > 0$.  But if
+$$p(x) = a_nx^n + \mbox{ lower order terms}$$
+and
+$$q(x) = b_mx^m + \mbox{ lower order terms},$$
+then
+$$p(x) + q(x) + (p*q)(x) = a_nb_m(x^n*x^m) + \mbox{ lower order terms}$$
+and $x^n*x^m$ is a non-zero multiple of $x^{n+m+1}$.  Hence
+$p + q + p*q \ne 0$; contradiction.}%
+\end{Example}
+
+This example is very similar to Example \ref{C01}.  As there, the quotient
+$A/\overline{J}(A)$ is the one-dimensional algebra with zero multiplication,
+so $\overline{J}$ does not satisfy axiom (2), and we have to go to
+$\barstar J$ to obtain a topological radical.   However, this is only one of the possible ways
+to get a topological radical for normed algebras which reduces to the Jacobson
+radical for Banach algebras.
+In order to study these, we need some basic information about representations of
+incomplete algebras.   This is a little-studied topic.   It is well-known that
+strictly irreducible representations of Banach algebras are transitive, (which
+means that we do not have to consider radicals based on different degrees of
+transitivity),  but the following variation in which the completeness
+hypothesis is on the space rather than the algebra seems not to be available
+in the literature.
+
+\begin{thm}\label{T10}
+Every strictly irreducible normed representation of an algebra on a Banach
+space is transitive.
+\end{thm}
+
+\begin{Proof}
+Let $\pi:A \to \LX$ be a strictly irreducible representation of~$A$ on the
+Banach space~$X$.
+Let us write $\UX$ for the algebra of all linear
+endomorphisms of~$X$.   Then Schur's Lemma tells us that
+$$\{S \in \UX: S\pi(a) = \pi(a)S\quad(a \in A)\}$$
+is a division algebra.    We are interested in the set
+$$\pi(A)' = \{S \in \LX: S\pi(a) = \pi(a)S\quad(a \in A)\}.$$
+Then every $S \in \pi(A)'$ is bijective, and therefore, by
+Banach's Isomorphism Theorem, has an inverse in $\pi(A)'$.  Thus
+$\pi(A)'$ is a normed division algebra.  By the Gelfand-Mazur Theorem,
+$\pi(A)'$ consists of the scalar multiples of the identity.   The remainder
+of the proof is standard (see \cite{Palmerbk} Theorem 4.2.13).
+\end{Proof}
+
+\begin{Remark}
+If $\pi:A \to \LX$ is a continuous strictly irreducible representation
+of a normed algebra~$A$ on a Banach space~$X$, then we may regard
+$\pi:A \to \closure{\pi(A)}$ as a continuous homomorphism of~$A$ into the
+Banach algebra $\closure{\pi(A)}$ and the identity map
+$\closure{\pi(A)} \to \LX$ as a strictly irreducible
+representation of $\closure{\pi(A)}$.  Thus~$\pi$ is standard.
+\end{Remark}
+
+In looking for topological radicals of normed algebras corresponding to the
+Jacobson radical, let us restrict our attention to those based on continuous
+representations on Banach spaces.  The natural concept to define is the
+following.
+
+\begin{Defn}
+For a normed algebra~$A$, let $I(A)$ denote the intersection of the kernels of
+the continuous strictly irreducible representations of~$A$ on Banach spaces.
+\end{Defn}
+
+If~$A$ is Banach, $J(A) = I(A)$.    We shall show that~$I$ is a
+(hereditary) topological radical, different from $\barstar J$.
+
+\begin{thm}\label{T11}
+The mapping~$I$ is a hereditary topological radical.
+\end{thm}
+
+\begin{Proof}
+The proof proceeds as in Theorem \ref{T5}, the analogue of Lemma \ref{L1}
+going as follows.
+
+If~$I$ is a closed ideal of a normed algebra~$A$ and~$\pi$ is a
+continuous strictly irreducible representation of~$I$ on a Banach
+space~$X$, we show that there is a continuous strictly irreducible
+representation~$\hat\pi$ of~$A$ on~$X$ such that
+$\ker\pi = \ker\hat\pi\cap I$.
+
+Let $\tilde A$ be the completion of~$A$ and let $\tilde I$ be the
+closure of~$I$ in $\tilde A$. Then $\tilde I$ is a closed ideal in
+$\tilde A$. Since~$\pi$ is continuous, it extends to a continuous
+strictly irreducible representation $\tilde\pi:\tilde I \to \LX$. We use
+the usual algebraic method to extend this to a representation $\hat\pi$
+mapping~$\tilde A$ into the algebra of endomorphisms of the vector
+space~$X$: we choose any nonzero $x_0 \in X$; every $y \in X$ may be
+written in the form $y = \tilde\pi(b)x_0$ for some $b \in \tilde I$; for
+$a \in \tilde A$ we define $\hat\pi(a)$ by $\hat\pi(a)y =
+\tilde\pi(ab)x_0$. It is easy to check that $\hat\pi$ is a well-defined
+homomorphism. The restriction $\hat\pi|A$ to~$A$ is strictly
+irreducible, since it is an extension of the strictly irreducible
+representation~$\pi$. It remains to show that $\hat\pi(a) \in \LX$
+and that $\hat\pi$ is continuous.
+
+The mapping $b \mapsto \tilde\pi(b)x_0:\tilde I \to X$ is continuous,
+surjective, and therefore open.   Thus, there is a constant $K > 0$ such that
+for every $y \in X$ there is a $b \in \tilde I$ with $\|b\| \le K\|y\|$ such
+that $y = \tilde\pi(b)x_0$.   Then
+$$\|\hat\pi(a)y\| \le \|\tilde\pi\|\,\|ab\|\,\|x_0\|
+                  \le K\|\tilde\pi\|\,\|a\|\,\|y\|\,\|x_0\|\qquad(a \in A,\;y\in X),$$
+$$\|\hat\pi(a)\| \le K\|\tilde\pi\|\,\|a\|\,\|x_0\|\qquad(a \in A).$$
+Thus $\hat\pi(a)\in \LX$ and $\hat\pi$ is continuous of norm at most
+$K\|\tilde\pi\|\,\|x_0\|$.
+\end{Proof}
+
+We have $J(A) \sseq I(A)$ for all normed algebras~$A$.   Therefore, by
+Theorem \ref{T4.1}, $\barstar J \le I$.
+The following example shows that we can have $\barstar J \ne I$.
+
+\begin{Example}\label{Ex4}
+Let $B$ be the subalgebra of $(C[0,1],*)$ consisting of the polynomials,
+discussed in Example~\ref{Ex3}. Then $J(B) = \{0\}$, and so
+$\barstar J(A) = \{0\}$. On the other hand, any continuous TI representation
+of~$B$ would extend by continuity to a TI representation of $(C[0,1],*)$,
+which is impossible, since $\barstar\beta(C[0,1]) = C[0,1]$. Therefore
+$T_1(B) = B$, so $I(B) = B$.
+\end{Example}
+
+This example shows that to make Theorem~\ref{T12}
+work for incomplete normed algebras we have to replace~$J$ by~$I$:
+
+\begin{thm}\label{T12i}
+The topological radicals of general normed algebras are related by
+$$\barstar\beta \le T_1 \le T_m \le T_n \le T_\infty \le S_* \le I
+                                       \qquad (1 \le m \le n \le \infty).$$
+$$\barstar\beta \le \barstar J \le I$$
+\end{thm}
+
+\begin{Proof}
+Every continuous, strictly irreducible representation $\pi:A \to \LX$ extends to an
+irreducible representation $\tilde\pi:\tilde A \to \LX$, and is therefore a
+standard representation of~$A$.  Thus $S \le I$ and it follows from \detail{the
+general normed algebra version of} Theorem \ref{T4.1} that $S_* \le I$.    The
+other inequalities are obvious.
+\end{Proof}
+
+\begin{Remark}
+It is tempting to try to define a topological radical for normed algebras by
+$J'(A) = A \cap J(\tilde A)$, where $\tilde A$ is the completion of~$A$.
+However, while this $J'$ does satisfy axioms (1), (2), (4) and (5), it fails to
+satisfy (3).
+\Detail{If~$R$ is a hereditary topological radical for Banach algebras, then $R'$ is a
+hereditary topological radical for normed algebras, except insofar as it might fail to
+satisfy (3).
+
+\begin{Proof}
+Since~$R$ is a hereditary topological radical, $R(\tilde A)$ is a closed ideal of $\tilde A$.
+Hence $R'(A)$ is a closed ideal of~$A$.  We check the axioms (2), (4) and (5).
+Axiom (1) follows from (5).
+
+{\bf (2)}~~Using the fact that $(A/I)\:\tilde{}\: = \tilde A/\tilde I$ we see that
+$$R'(A/R'(A)) = A/R'(A) \cap R((A/R'(A))\:\tilde{}\:)
+            = A/R'(A) \cap R(\tilde A/R(\tilde A)) = \{0\}.$$
+
+{\bf (4), (5)}~~If~$I$ is a closed ideal of~$A$, then $\tilde I$ is a closed
+ideal of $\tilde A$, so $R(\tilde I)$ is a closed ideal of $\tilde A$ and
+$R(\tilde I) = R(\tilde A) \cap \tilde I$.   Therefore
+$R'(I) = I \cap R(\tilde I)$ is a closed ideal of~$A$ and
+$$R'(I) = A \cap R(\tilde A) \cap \tilde I
+        = (A \cap R(\tilde A)) \cap (A \cap\tilde I)
+        = R'(A) \cap I.$$
+\end{Proof}}
+
+Let $(A_0,\nn{.})$, $(A_0,\|.\|)$ be as in Example \ref{MainEx}, with
+completions~$A$,~$B$ respectively, and let~$\phi:(A_0,\nn{.})\to(A_0,\|.\|)$
+be the identity map.   Then $J'(A_0,\nn{.}) = A_0 \cap J(A) = A_0$ and
+$J'(A_0,\|.\|) = A_0 \cap J(B) = \{0\}$, so $\phi(J'(A_0,\nn{.}))$ is not
+contained in $J'(\phi(A_0,\nn{.}))$.
+\end{Remark}
+
+%==============================================================================
+\section{Representations on incomplete spaces}\label{S9}
+
+Let us now consider representations of Banach algebras on incomplete spaces.
+We define $U_n(A)$ to be the intersection of the kernels of the continuous $n$-TT
+representations $\pi:A\to \LX$ of~$A$ on normed spaces~$X$.   As before, $U_n$
+is a topological radical, the proof being the same except for the construction
+of the space~$Z$ in Lemma \ref{L1}, where we simply put $Z=Y$.
+
+Generally, we expect representations on incomplete spaces to be less
+interesting, but the relaxed condition does make it easier to construct
+examples.   The Banach space analogue of the following theorem is the
+example (Proposition \ref{P3}) based on Read's recent work \cite{Readqn}.
+
+\begin{thm}
+There is a commutative, singly-generated, Jacobson-radical Banach algebra~$A$
+with a faithful continuous TI representation on a normed space; hence
+$\{0\} = U_1(A) \subset U_2(A) = A$.
+\end{thm}
+
+\begin{Proof}
+Our algebra~$A$ will be the disc algebra with convolution multiplication
+\begin{equation}\label{E4}
+(f*g)(z) = \int_0^z f(w)g(z-w)\,\dw,
+\end{equation}
+the integral being taken along any path in the unit disc from~0 to~$z$.
+The norm is the usual supremum norm
+$$\|f\|_A = \sup_{|z|\le 1} |f(z)|.$$
+This is a well-known example of a commutative Jacobson-radical Banach algebra
+which is an integral domain (see \cite{Hille} p.478,
+\cite{Palmerbk} 4.8.3, \cite{Rickart} A.2.11).
+The restriction map $\phi:A\to L^1[0,1]$ is injective.  Let~$X = \phi(A)$.
+Let $\pi:A\to \LX$ be defined by
+$$\pi(a)(x) = \phi(a*\phi^{-1}(x)) = \phi(a)*x \qquad (a \in A, x \in X).$$
+(The integral (\ref{E4}) may be taken along the real axis when~$z \in [0,1]$.)
+It is easy to see that $\|\pi(a)(x)\|_1 \le \|a\|_A\|x\|_1$ $(a \in A, x \in X)$,
+so~$\pi$ is a continuous normed representation.   Since~$\pi$ is, algebraically,
+the left regular representation of an integral domain,~$\pi$ is faithful.
+
+We must show that~$\pi$ has no nontrivial closed invariant subspaces.
+This is equivalent to saying that the algebra $(X,*)$ has no nontrivial
+closed ideals.   Since~$X$ is dense in $(L^1[0,1],*)$, the closed ideals
+of~$X$ are of the form $X \cap I$ where~$I$ is a closed ideal of $(L^1[0,1],*)$.
+\Detail{If~$A$ is a dense subalgebra of a Banach algebra~$B$ and~$I$ is a closed
+ideal of~$A$, then $J=\closure{I+BI+IB+BIB}$ is a closed ideal of~$B$ with
+$I \sseq J\cap A$.  We show that $J \cap A \sseq I$.  If $y \in J \cap A$, then
+for all $\e > 0$ there exist $x, x_i, x_i', x_i'' \in I$,
+$b_i, b_i', b_i'', b_i''' \in B$  $(1 \le i \le n)$ such that
+$$\|x + \sum b_ix_i + \sum x_i'b_i' + \sum b_i''x_i''b_i''' - y\| < \e/2.$$
+Since~$A$ is dense in~$B$, we may then approximate the $b_i, b_i', b_i'', b_i'''$
+by $a_i, a_i', a_i'', a_i'''$ so that
+$$\|x + \sum a_ix_i + \sum x_i'a_i' + \sum a_i''x_i''a_i''' - y\| < \e.$$
+Thus~$y$ may be approximated arbitrarily closely by elements of~$I$.   Since
+$y \in A$ and~$I$ is closed in~$A$, it follows that $y \in I$.   The fact that
+every $J\cap A$ is a closed ideal of~$A$ whenever~$J$ is a closed ideal of~$B$
+is obvious.}
+Now the only proper closed ideals~$I$ of $(L^1[0,1],*)$ consist of
+functions vanishing in a neighbourhood of zero \cite{Donoghue} and so have
+$X \cap I = \{0\}$.  The result follows.
+\end{Proof}
+
+\Detail{The other relaxation we can make is to drop the requirement that our
+representations be continuous.  Thus we may consider the intersection
+$T_d(A)$ of all TI representations on a given algebra~$A$ on a Banach space.
+This is an ideal containing $\beta(A)$, but it need not be closed; in Example
+\ref{Ex3}, $\beta(A)=J(A)$ and $A/J(A)$ is isomorphic to the maximal ideal of
+$\C[X]$ and therefore has a separating family of irreducible 1-dimensional
+representations, so $T_d(A) = \beta(A)$ which is not closed.}
+%==============================================================================
+\section{Open questions}\label{S8}
+
+The open questions in this subject outnumber the theorems and we can
+pick out only a few here.   Let us begin with a wild conjecture.
+
+\begin{Conjecture}\label{Conj1}
+For all Banach algebras~$A$, $T_1(A) = \barstar \beta (A)$.
+\end{Conjecture}
+
+This would mean that TI representations play the same r\^ole for semiprime
+Banach algebras that strictly irreducible representations do for Jacobson
+semisimple algebras.   Note that this conjecture implies that the topological
+radical $\barstar\beta$ is hereditary.
+
+Topologically transitive representations are little understood.  The following
+are two of the basic questions.
+
+\begin{Question}\label{Q2}
+Is every continuous 2-TT representation of a Banach algebra on a Banach space
+topologically transitive?
+\end{Question}
+
+\begin{Question}\label{Q3}
+Are the radicals $T_n$ $(2 \le n \le \infty)$ distinct?
+\end{Question}
+
+Moving further up the list of radicals we ask:
+
+\begin{Question}\label{Q4}
+Is every continuous TT representation of a Banach algebra
+on a Banach space standard?
+\end{Question}
+
+\begin{Question}\label{Q5}
+Are the radicals $T_\infty$ and $S_*$ distinct?
+\end{Question}
+
+Finally, there are also many questions on the general theory of radicals in
+normed algebras that we have left open.  We have not been concerned to make an
+exhaustive study of all the possible choices of axioms, we only wanted to find
+one that worked.  Nevertheless, it would be interesting to know if any of the
+alternatives we rejected can be made to work and if others can be proved
+inequivalent to ours.
+
+
+
+\begin{eqnarray*}
+\nnY{\pi(a)x^{(j)} - y^{(j)}}
+& = & \bignnY{\sum_{i=1}^n \pi(b_ic_i)x^{(j)} - \sum_{i=1}^n \pi(b_i)x_i^{(j)}}\\
+& = & \bignnY{\sum_{i=1}^n \pi(b_i)\left(\pi(c_i)x^{(j)} - x_i^{(j)}\right)} \\
+& \le & \sum_{i=1}^n \|b_i\|\,\|\pi(c_i)x^{(j)} - x_i^{(j)}\|, \qquad \mbox{by the definition of $\nnY{.}$,}\\
+& < & \e.
+\end{eqnarray*}
+
+
+
+
+
+\begin{eqnarray}
+                              B_r=-\frac{\mathrm{\partial} f}{\mathrm{\partial} z}{B_{0z}}{G}-r\frac{\mathrm{\partial} {B_{bz}}}{\mathrm{\partial} z},\quad
+                              B_\phi =0,\quad B_z=\frac{\mathrm{\partial} f}{\mathrm{\partial} r}{B_{0z}}{G}+2{B_{bz}},\nonumber\\
+\end{eqnarray}
+
+
+
+
+
+\begin{equation}
+                              \rho {_{\rm v}}=\rho _{\rm ref}(z)+\rho _0\exp \left(-\frac{z}{z_\alpha }\right),
+                              \end{equation}
+
+
+\begin{equation}
+                              \frac{\,{\rm d}p{_{\rm v}}}{\,{\rm d}z}=\rho {_{\rm v}}g \Rightarrow \quad p{_{\rm v}}(z) = p_{\rm ref}({z_{\min }})+\int
+                              _{z_{\min }}^z \rho {_{\rm v}}(z^*) g \,{\rm d}z^*,
+ \end{equation}
+
+
+
+\begin{equation}
+                              {{\nabla P}} = \nabla p_{_{\rm v}}+ \nabla p_{_{\rm h}}+\nabla \frac{|\boldsymbol {B}|^2}{2} + (\boldsymbol {B}\cdot \nabla
+                              )\boldsymbol {B} = (\rho _h+\rho _v) \boldsymbol {g},
+                              \end{equation}
+
+
+
+%==============================================================================
+\begin{thebibliography}{99}
+\bibitem{Beauzamy} B.~Beauzamy, {\em Introduction to operator theory and
+invariant subspaces}, (North-Holland, North-Holland Mathematical Library {\bf
+42}, Amsterdam 1988).
+\bibitem{BD} F.~F.~Bonsall and J.~Duncan, {\em Complete normed algebras.}
+(Springer, Berlin--Heidelberg--New York, 1973).
+\bibitem{Divinskybk} N.~J.~Divinsky, {\em Rings and radicals}, (George Allen
+\& Unwin, London, 1965).
+\bibitem{PGD7}  P.~G.~Dixon, ``Semiprime Banach algebras'', {\em J. London Math. Soc.} (2),
+{\bf 6} (1973), 676--678.
+\bibitem{PGD12} P.~G.~Dixon, ``A Jacobson-semisimple Banach algebra with a dense nil
+subalgebra'', {\em Colloq. Math.,} {\bf 37} (1977), 81--82.
+\bibitem{Donoghue} W.~F.~Donoghue Jr., ``The lattice of invariant subspaces of
+a completely continuous quasi-nilpotent transformation''{\em Pacific J. Math.,} {\bf 7} (1957)
+1031--1035.  %{\bf MR} 19 \#1066
+\bibitem{Enflo} P.~Enflo, ``On the invariant subspace problem in Banach spaces'',
+{\em Acta Math.}, {\bf 158} (1987), 213--313. %{\bf MR} 88j:47006
+\bibitem{Hille} E.~Hille, {\em Functional analysis and semigroups},
+(American Math.\ Soc., Colloquium Publications {\bf 31}, Providence, R.I., 1948)
+\bibitem{Jacobson} N.~Jacobson, {\em Structure of Rings}, third edition
+(Amer.\ Math.\ Soc.\ Coll.\ Publ.\ {\bf 37}, Providence, R.I., 1968).
+\bibitem{Jameson} G.~J.~O.~Jameson, {\em Topology and normed spaces},
+(Chapman \& Hall, 1974).
+%\bibitem{BEJ} B.~E.~Johnson, ``The uniqueness of the (complete) norm topology'',
+{\em Bull.\ Amer.\ Math.\ Soc.,} {\bf 73} (1967), 537--539. %{\bf MR 35} #2142
+\bibitem{Kadison} R.~V.~Kadison, ``Irreducible operator algebras'',
+{\em Proc.\ Nat.\ Acad.\ Sci.\ U.S.A.}, {\bf 43} (1957), 273--276.
+\bibitem{Meyer1} M.~J.~Meyer, ``Continuous dense embeddings of strong Moore
+algebras'', {\em Proc.\ Amer.\ Math.\ Soc.,} {\bf 116} (1992), 727--735.
+\bibitem{Murphy} G.~J.~Murphy, {\em C*-algebras and operator theory}
+(Academic Press, London, 1990).
+\bibitem{Palmerbk} Th.~W.~Palmer, {\em Banach algebras and the general theory of *-algebras,
+volume I: algebras and Banach algebras} (C.U.P., Cambridge, 1994)
+\bibitem{Read} C.~J.~Read, ``A solution to the invariant subspace problem'',
+{\em Bull.\ London Math.\ Soc.,} {\bf 16} (1984), 337--401. %{\bf MR} 86f:47005
+\bibitem{Readl1} C.~J.~Read, ``A solution to the invariant subspace problem
+on the space $\ell_1$'', {\em Bull.\ London Math.\ Soc.,} {\bf 17} (1985),
+305--317. %{\bf MR} 87e:47013
+\bibitem{Readqn} C.~J.~Read, ``Quasinilpotent operators and the invariant
+subspace problem'', (preprint, Trinity College, Cambridge, 1995).
+\bibitem{Rickart} C.~E.~Rickart, {\em General theory of Banach algebras}
+(van Nostrand, Princeton, 1960).
+\bibitem{Rowen} L.~H.~Rowen, {\em Ring theory: student edition.}
+(Academic Press, San Diego, Ca., 1991).
+\bibitem{Sakai} S.~Sakai, {\em C*-algebras and W*-algebras},
+(Springer, Ergebnisse {\bf 60}, Berlin--Heidelberg--New York 1971).
+\end{thebibliography}
+\vspace{\baselineskip}
+
+\noindent
+Pure Mathematics Section, \\
+School of Mathematics and Statistics,\\
+University of Sheffield,\\
+SHEFFIELD,  S3 7RH,\\
+England. \\[1 ex]
+e-mail:~P.Dixon@sheffield.ac.uk
+\end{document}
+%=======================================================================
