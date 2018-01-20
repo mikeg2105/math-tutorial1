@@ -1,6 +1,9 @@
 %LaTeX2e
 \documentclass[11pt]{article}
 \usepackage{amsfonts,amssymb}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{courier}
 \textheight 9in
 \textwidth 6.2in
 \topmargin 0in
@@ -36,8 +39,8 @@
 \newcommand{\sseq}{\subseteq}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\Ra}{\Rightarrow}
-\newcommand{\implies}{\;\;\Rightarrow\;\;}
-\newcommand{\And}{\;\;\&\;\;}
+%\newcommand{\implies}{\;\;\Rightarrow\;\;}
+%\newcommand{\And}{\;\;\&\;\;}
 \def\Bbb#1{\ensuremath{\mathbb{#1}}}
 \def\MakeBbb#1{%
    \edef\tmp{%
@@ -192,37 +195,54 @@ http://www.hippasus.com/resources/symmath/maximasym.html
 See runtime environment
 
 
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+  My box.
+
+
+$E = mc^2$  Formula of the universe
+
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+  My box.
+
+
+$E = mc^2$  Formula of the universe
+This is not Courier font. \texttt{This is Courier font.}
+
+\end{tcolorbox}
+
+
 Notes
 when you first run wxMaxima, if your firewall software complains that a socket is being opened, allow always. This is a local socket that wxMaxima (the user-friendly graphical front end) uses to communicate with Maxima (the computation engine). Ref: detailed installation walkthrough
 run a 2D plot to test your installation:
 
-f(x): 3*x+3$
-plot2d(f(x), [x,-50,50])$
+$f(x): 3*x+3$
+$plot2d(f(x), [x,-50,50])$
 
-If you get an error such as ‘temp directory not found’, a workaround is to create a usable one using the command:
-
-maxima_tempdir : "C:/totalprogs/Maxima/temp"$
 
 More information here.
 to see details of your current Maxima/wxMaxima installation, run:
 
-wxbuild_info()$;
+$wxbuild_info()$;
 
 
 
 
 
-maxima_userdir   variable returns current working directory to set it
+$maxima_userdir$   variable returns current working directory to set it
 
 On that page is a link to a set of wxMaxima tutorials on the page
 http://wxmaxima.sourceforge.net/wiki/index.php/Tutorials.
 
 
-http://sourceforge.net/forum/forum.php?forum_id=435775
+$http://sourceforge.net/forum/forum.php?forum_id=435775$
 
 
 
-http://maxima.sourceforge.net/docs/manual/maxima.html
+$http://maxima.sourceforge.net/docs/manual/maxima.html$
 
 
 

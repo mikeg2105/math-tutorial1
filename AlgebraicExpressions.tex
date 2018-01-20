@@ -1,6 +1,8 @@
 %LaTeX2e
 \documentclass[11pt]{article}
 \usepackage{amsfonts,amssymb}
+\usepackage{tcolorbox}
+\usepackage{courier}
 \textheight 9in
 \textwidth 6.2in
 \topmargin 0in
@@ -204,7 +206,49 @@ Extra information from \cite{khanacademyalgebra1}
 %==============================================================================
 \section{Revision}\label{S2}
 
-Some simple expressions to start with
+An important skill for mathematicians is to Some simple expressions to start with
+
+
+
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+
+(%i1) f:5*x^2*y+6*x*y^2+12*x*y;
+
+                             2       2
+(%o1)          6 x y  + 5 x  y + 12 x y
+  My box.
+
+
+$E = mc^2$  Formula of the universe
+
+
+
+This is not Courier font. \texttt{This is Courier font.}
+
+
+ \begin{verbatim}
+(%i1)f:6*x*y^2+5*x^2*y+12*x*y;
+\end{verbatim}
+
+
+
+  $$\tt{6\,x\,y^2+5\,x^2\,y+12\,x\,y}\leqno{\tt (\%o1)}$$
+
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+  My box.
+
+
+$E = mc^2$  Formula of the universe
+
+
+\end{tcolorbox}
+
+
 
 
 %==============================================================================

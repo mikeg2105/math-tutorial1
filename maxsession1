@@ -1,0 +1,53 @@
+Maxima 5.31.2 http://maxima.sourceforge.net
+using Lisp GNU Common Lisp (GCL) GCL 2.6.8 (a.k.a. GCL)
+Distributed under the GNU Public License. See the file COPYING.
+Dedicated to the memory of William Schelter.
+The function bug_report() provides bug reporting information.
+(%i1) f:5*x^2*y+6*x*y^2+12*x*y;
+                                2      2
+(%o1)                      6 x y  + 5 x  y + 12 x y
+(%i2) f,ratsimp
+;
+                                2       2
+(%o2)                      6 x y  + (5 x  + 12 x) y
+(%i3) f,simplify;
+                                2      2
+(%o3)                      6 x y  + 5 x  y + 12 x y
+(%i4) f;
+                                2      2
+(%o4)                      6 x y  + 5 x  y + 12 x y
+(%i5) f,fullratsimp;
+                                2       2
+(%o5)                      6 x y  + (5 x  + 12 x) y
+(%i6) rat(f);
+                                2       2
+(%o6)/R/                   6 x y  + (5 x  + 12 x) y
+(%i7) f2:4*m^2*n+5*m*n^2-2*m^2*n+m*n^2-3*m*n^2;
+                                     2      2
+(%o7)                           3 m n  + 2 m  n
+(%i8) f,ratsinp;
+                                2      2
+(%o8)                      6 x y  + 5 x  y + 12 x y
+(%i9) f2,ratsimp;
+                                     2      2
+(%o9)                           3 m n  + 2 m  n
+(%i10) f2,fulratsimp;
+                                     2      2
+(%o10)                          3 m n  + 2 m  n
+(%i11) f3:2^5*2^3;
+(%o11)                                256
+(%i12) f3:3*(x+4);
+(%o12)                             3 (x + 4)
+(%i13) f3,expand;
+(%o13)                             3 x + 12
+(%i14) tex(%i1);
+\begin{verbatim}
+(%i1)f:6*x*y^2+5*x^2*y+12*x*y;
+\end{verbatim}
+
+(%o14)                               (%i1)
+(%i15) tex(%o1);
+$$6\,x\,y^2+5\,x^2\,y+12\,x\,y\leqno{\tt (\%o1)}$$
+(%o15)                              (\%o1)
+(%i16) 
+
