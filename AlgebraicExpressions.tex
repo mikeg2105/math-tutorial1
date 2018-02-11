@@ -189,6 +189,43 @@ Practice manipiulation of algebraic expressions
 
 will use computer algebra progam but should practice this craft by hand!
 
+Examples will be highlighted using green text boxes:
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+After simlification the expression
+\begin{equation}
+5x^2y+6xy^2+12xy
+\end{equation}
+
+becomes
+\begin{equation}
+xy(5x+6y+12)
+\end{equation}
+
+\end{tcolorbox}
+
+
+Examples using maxima will be shown in a red textbox these will feature examples of how to use maxima
+
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+A simplification example using the ratsimp maxima command. Simplify the expression:
+\begin{equation}
+5x^2y+6xy^2+12xy
+\end{equation}
+
+ \begin{verbatim}
+(%i1)f:6*x*y^2+5*x^2*y+12*x*y;
+\end{verbatim}
+ $$6\,x\,y^2+5\,x^2\,y+12\,x\,y\leqno{\tt (\%o1)}$$
+\begin{verbatim}
+(%i2)ratsimp(f);
+\end{verbatim}
+ $$6\,x\,y^2+\left(5\,x^2+12\,x\right)\,y\leqno{\tt (\%o2)}$$
+
+\end{tcolorbox}
+
 
 \begin{description}
 \item[$\bullet$] Multiply and divide integer powers
@@ -206,47 +243,100 @@ Extra information from \cite{khanacademyalgebra1}
 %==============================================================================
 \section{Revision}\label{S2}
 
+
+
+
+
+
+
 An important skill for mathematicians is to Some simple expressions to start with
 
 
+Simplify expressions such as
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+\begin{equation}
+5x^2y+6x^2y^2+12xy+4x^2y^2-2xy
+\end{equation}
+or
+\begin{equation}
+4ab+2a^2b^2+4b^2+4a^2
+\end{equation}
+
+\end{tcolorbox}
 
 
-\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+Understand indices and be able to write the following expressions as a single power
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+\begin{equation}
+3^3 \times 3^6
+\end{equation}
+or
+\begin{equation}
+(2^2)^3
+\end{equation}
 
-(%i1) f:5*x^2*y+6*x*y^2+12*x*y;
+\begin{equation}
+(4^5) \over (4^2)
+\end{equation}
 
-                             2       2
-(%o1)          6 x y  + 5 x  y + 12 x y
-  My box.
+\end{tcolorbox}
+
+Expand expressions such as
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+\begin{equation}
+2(a+2b)
+\end{equation}
+or
+\begin{equation}
+5(2-2x)
+\end{equation}
+
+\begin{equation}
+4(3x+4y)
+\end{equation}
+
+\end{tcolorbox}
 
 
-$E = mc^2$  Formula of the universe
+Identify the highest common factors for expressions such as
 
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+36 and 108 \newline
+or \newline
 
+$$ 6x $$  and $$ 36x^3 $$
 
-This is not Courier font. \texttt{This is Courier font.}
+or \newline
 
-
- \begin{verbatim}
-(%i1)f:6*x*y^2+5*x^2*y+12*x*y;
-\end{verbatim}
-
-
-
-  $$\tt{6\,x\,y^2+5\,x^2\,y+12\,x\,y}\leqno{\tt (\%o1)}$$
+$$   12x^2y  $$  and $$  48xy^2 $$
 
 
 \end{tcolorbox}
+
+
+Simplify the following
 
 
 \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
-  My box.
+ 
+$$     15x \over 3 $$ \newline
+or \newline
 
-
-$E = mc^2$  Formula of the universe
+$$ 40a \over 8 $$   \newline
 
 
 \end{tcolorbox}
+
+
+
+
+
+
 
 
 

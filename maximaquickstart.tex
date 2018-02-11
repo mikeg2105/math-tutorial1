@@ -191,8 +191,34 @@
 The following command reference is helpful
 http://www.hippasus.com/resources/symmath/maximasym.html
 
+Introduction to maxima Woolett
+https://web.csulb.edu/~woollett/mbe1intro.pdf
+
+
 
 See runtime environment
+
+
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+A simplification example using the ratsimp maxima command. Simplify the expression:
+\begin{equation}
+5x^2y+6xy^2+12xy
+\end{equation}
+
+ \begin{verbatim}
+(%i1)f:6*x*y^2+5*x^2*y+12*x*y;
+\end{verbatim}
+ $$6\,x\,y^2+5\,x^2\,y+12\,x\,y\leqno{\tt (\%o1)}$$
+\begin{verbatim}
+(%i2)ratsimp(f);
+\end{verbatim}
+ $$6\,x\,y^2+\left(5\,x^2+12\,x\right)\,y\leqno{\tt (\%o2)}$$
+
+\end{tcolorbox}
+
+
+
 
 
 \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
