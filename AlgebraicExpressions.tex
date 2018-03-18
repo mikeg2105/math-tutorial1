@@ -249,9 +249,7 @@ Extra information from \cite{khanacademyalgebra1}
 
 
 
-An important skill for mathematicians is to Some simple expressions to start with
-
-
+An important skill for mathematicians is the use of algebra to solve problems and develop models. A basic skill is to be able to manipulate simple expressions.
 Simplify expressions such as
 \begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
  
@@ -282,6 +280,7 @@ or
 \end{equation}
 
 \end{tcolorbox}
+
 
 Expand expressions such as
 
@@ -343,87 +342,243 @@ $$ 40a \over 8 $$   \newline
 
 %==============================================================================
 \section{Index Laws}\label{S3}
+Simplification of operations involving powers requires the laws of indices. The rules for simplifying powers of the same base is shown below.
 
-Some of our later examples will produce, {\em inter alia}, TI representations
-which are not strictly irreducible, but it is worth noting now that
-satisfying these requirements alone is quite easy.
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+ 
+$$  a^{m} \times a^{n}=a^{m+n}  $$ \newline
+ \newline
 
-\begin{Example}\label{Ex1}
-Let~$A= \ell^1(S_2)$ be the semigroup algebra of the free semigroup on two
-generators $X,Y$.    Let~$T$ be the unilateral shift on $H=\ell^2$:
-\begin{eqnarray*}
-T(\xi_1,\xi_2,\xi_3,\dots) & = & (0,\xi_1,\xi_2,\dots)\\
-T^*(\xi_1,\xi_2,\xi_3,\dots) & = & (\xi_2,\xi_3,\xi_4,\dots)
-\end{eqnarray*}
-Let~$\pi$ be the continuous representation of~$A$ on $\ell^2$ defined by
-$\pi(\delta_X) = T$, $\pi(\delta_Y) = T^*$.   It is easy to see that
-$\pi(A)$ is a *-subalgebra of $\LH$ with scalar commutant, so, by von Neumann's
-Double Commutant Theorem, its strong closure is $\LH$, \ie $\pi$ is TT; but
-$$\pi(A)((1,0,0,\dots))  = \ell^1,$$ so~$\pi$ is not strictly irreducible.
-\end{Example}
+$$  a^{m} \div a^{n}=a^{m-n}  $$ \newline
+ \newline
 
-\begin{Remark}
-For *-representations of C*-algebras,
-Kadison's Transitivity Theorem says that TI implies strictly irreducible
-(\cite{Kadison}, see also \cite{Murphy} 5.2.2, \cite{Sakai} 1.21.17).  In
-the example above, $\pi(A)$ is not closed in $\LH$.
-\end{Remark}
+$$  (a^{m})^{n}=a^{mn}  $$ \newline
+ \newline
 
-We shall be seeking to relate the TI radical to radicals definable without
-reference to representations.    In one direction this is easy, provided the
-algebra is complete:  every strictly irreducible representation of a Banach algebra~$A$ has the
-same kernel as some continuous strictly irreducible representation of~$A$ on a Banach
-space (\cite{Palmerbk} 4.2.9, \cite{Rickart} (2.4.7)).    Hence the TI radical
-of a Banach algebra is contained in the Jacobson radical, which has many
-characterizations not directly involving representations (largest quasi-regular
-ideal, largest ideal of topologically nilpotent elements, intersection of the
-maximal modular left ideals).   It is not immediately clear
-that this inclusion can be strict---in Example \ref{Ex1} above, the algebra~$A$
-is semisimple so there are many other representations which are strictly
-irreducible---but we shall give an example later where this is so.
+$$  (ab)^{n}=a^{n}b^{n}  $$ \newline
+ \newline
 
+\end{tcolorbox}
+
+Some example expansions are shown below
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+
+ \begin{verbatim}
+(%i1)2*x^3*3*x^7;
+\end{verbatim}
+
+$$6\,x^{10}\leqno{\tt (\%o1)}$$
+
+\end{tcolorbox}
+
+
+
+
+
+An expansion example \newline
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+
+$$ 3x(5x+4)-4(3x+4)$$ \newline
+
+\begin{verbatim}
+(%i4)f:3*x*(5*x+4)-4*(3*x+4);
+\end{verbatim}
+
+\begin{verbatim}
+(%i5)ratsimp(f);
+\end{verbatim}
+
+$$15\,x^2-16\leqno{\tt (\%o5)}$$ \newline
+
+\end{tcolorbox}
+
+
+
+
+An expansion requiring index subtraction \newline
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+
+$$ 6x^4-12x^7 \over{3x^4}$$ \newline
+
+\begin{verbatim}
+(%i6)g:(6*x^4-12*x^7)/(3*x^4);
+\end{verbatim}
+
+\begin{verbatim}
+(%i7)ratsimp(%o6);
+\end{verbatim}
+
+$$2-4\,x^3\leqno{\tt (\%o7)}$$ \newline
+
+
+\end{tcolorbox}
 
 
 %==============================================================================
-\section{Expanding  Brackets}\label{S4}
+\section{Expanding  Brackets}\label{EB}
+When we manipulate and expand expressions we need to understand the rule for finding the product of expressions enclosed within brackets. An example of such an expression is shown below:\newline
+$$  (2x+4y)(4x-2y+1)  $$ \newline
 
+To determine the product we multiply each term in one bracket with every term in the other bracket.
+
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$(2x+4y)(4x-2y+1)$$ \newline
+
+$$ 2x(4x-2y+1)+4y(4x-2y+1)    $$ \newline
+
+Multiply the first bracket \newline
+$$ 8x^2 - 4xy+2x+4y(4x-2y+1)    $$ \newline
+
+Multiply the second bracket \newline
+$$ 8x^2 - 4xy+2x+16xy-8y^2+4y    $$ \newline
+
+Group similar terms together \newline
+$$ 8x^2-8y^2+2x+4y +16xy - 4xy   $$ \newline
+
+Simplify last two terms \newline
+$$ 8x^2-8y^2+2x+4y +12xy    $$ \newline
+
+\end{tcolorbox}
+
+
+Or use the expand command in maxima
+
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+
+\begin{verbatim}
+(%i11)f:(-2*y+4*x+1)*(4*y+2*x);
+\end{verbatim}
+
+$$\left(-2\,y+4\,x+1\right)\,\left(4\,y+2\,x\right)\leqno{\tt (\%o11)}$$  \newline
+
+\begin{verbatim}
+(%i12)expand(f);
+\end{verbatim}
+
+$$-8\,y^2+12\,x\,y+4\,y+8\,x^2+2\,x\leqno{\tt (\%o12)}$$ \newline
+
+\end{tcolorbox}
+
+Later expansions such as the Binomial and Taylor expansions will be used to expand expressions.
 
 %============================================================================
-\section{Factorising}\label{S4a}
+\section{Factorising}\label{FAC}
 
-The obvious first question about TT representations is whether there are
-TI representations which are not TT.   One way in which such representations
-might occur is as the left regular representations of radical Banach algebras
-with no non-trivial closed left ideals, if such exist.
+As well as expanding brackets it is necessary to perform the reverse operation. The reverse operation of expansion is factorisation.
 
+The expression: \newline
+$$ 8x^2-8y^2+2x+4y +12xy    $$ \newline
+when factorised becomes:
+$$(2x+4y)(4x-2y+1)$$ \newline
+We will focus later on quadratic expressions such as
+$$ax^2+bx+c$$ \newline
+For example consider the quadratic equation
+$$2x^2+7x-4$$ \newline
+Here, $$a=2$$, $$b=7$$ and $$c=-3$$. Find two factors $$f_{1}$$ and $$f_{2}$$ such that \newline
+$$f_{1}+f_{2}=b$$\newline
+Using this rule, the quadratic can be written as \newline
+$$ 2x^2+8x-x-4  $$\newline
 
-\begin{Remark}
-The problem of whether there exists a radical Banach algebra with no non-trivial
-closed left ideals lies between two unsolved problems: the existence of a
-topologically simple radical Banach algebra \detail{no non-trivial closed
-two-sided ideals}\ and the existence of a topologically simple commutative
-radical Banach algebra.  \detail{Might it be equivalent to one of these questions?}
-\end{Remark}
+The terms can be grouped as\newline
+$$  (2x-1)x+(2x-1)4  $$ \newline
+Finally, take out the comman factor to give
+$$ (2x-1)(x+4)$$\newline
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$  4x+8=4(x+2)   $$\newline
+
+$$  2x^2-x=x(2x-1)  $$\newline
+
+$$  3xy+9xy^2=3xy(1+3y)  $$\newline
+\end{tcolorbox}
 
 
 %==============================================================================
-\section{Negative and Fractional Indices}\label{S5}
+\section{Negative Indices, Fractional Indices and Surds}\label{S5}
+Rational numbers are numbers which can be written as a ratio of the form \newline
+$$ \frac{a}{b}$$ where a and b are integers. Rules for the laws of indices with any rational power are as follows
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
 
-In this section, we develop a little of a general theory of radicals in
-normed algebras.    The calculations are generally straightforward once the
-correct definitions are in place; 
+$$  a^{\frac{1}{m}}=\sqrt[m]a  $$ \newline
+
+$$   a^{\frac{n}{m}}=\sqrt[m]{(a^{n})}  $$ \newline
+
+
+$$  a^{-m}=\frac{1}{a^{m}}  $$ \newline
+
+
+$$  a^{0}=1  $$ \newline
+
+\end{tcolorbox}
+
+Consider the examples \newline
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$ x^{\frac{2}{3}}x^{\frac{4}{3}}=x^2$$ \newline
+
+$$ (x^3)^{\frac{2}{3}}=x^2$$ \newline
+
+$$  \sqrt[3]{125x^6}=(125x^6)^{\frac{1}{3}}  $$ \newline
+
+$$  \frac{2x^2-x}{x^5} =\frac{2}{x^3}-\frac{1}{x^4}  $$ \newline
+\end{tcolorbox}
+
 %==============================================================================
-\section{Rationalising Denominators}\label{S5a}
-
-It is natural to ask whether, in Theorem \ref{T2}, the map~$R$ satisfying
-axiom~(5) would imply $\Rbar$ satisfying~(5).    The answer is negative,
-as the following example shows.
+\section{Surds and Rationalising Denominators}\label{S5a}
+Surds are examples of irrational numbers i.e. numbers which cannot be written in the form $$ \frac{a}{b}$$
 
 
+Rules for manipulating surds
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$ \sqrt{ab}=\sqrt{a}\times\sqrt{b}  $$\newline
 
-%==============================================================================
-\section{Summary of Key Points}\label{S6}
+$$\sqrt{\frac{a}{b}}=\frac{\sqrt{a}}{\sqrt{b}}$$ \newline
+\end{tcolorbox}
 
+
+
+A fraction with a surd can be rearranged so that the denominator is a rational number. Rules for rationalising denominators are as follows. 
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$ \frac{1}{\sqrt{a}}$$, multiply numerator and denominator by $$\sqrt{a}$$ \newline
+
+$$\frac{1}{a+\sqrt{b}}$$, mu;tiply numerator and denominator by $$  a-\sqrt{b} $$  \newline
+
+$$\frac{1}{a-\sqrt{b}}$$, mu;tiply numerator and denominator by $$  a+\sqrt{b} $$  \newline
+
+\end{tcolorbox}
+
+
+An example of simplifying surds
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+
+$$(2-\sqrt{3})(5+\sqrt{3})$$ \newline
+
+Expanding this becomes \newline
+$$ = 2(5+\sqrt{3})-\sqrt{3}(5+\sqrt{3})   $$ \newline
+
+Collect like terms together \newline
+$$ =10+2\sqrt{3}-5\sqrt{3}-\sqrt{9}  $$
+
+$$ 7-3\sqrt{3} $$ \newline
+
+\end{tcolorbox}
+
+
+Factorising the denominator
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black]
+$$  \frac{\sqrt{5}+\sqrt{2}}{\sqrt{5}-\sqrt{2}}$$\newline
+
+$$ = \frac{\sqrt{5}+\sqrt{2}}{\sqrt{5}-\sqrt{2}}\frac{\sqrt{5}+\sqrt{2}}{\sqrt{5}+\sqrt{2}}$$\newline
+
+Use $$\sqrt{2}\sqrt{5}=\sqrt{10}$$ \newline
+$$  =\frac{5+\sqrt{5}\sqrt{2}+\sqrt{2}\sqrt{5}+2}{5-2} $$ \newline
+
+$$ = \frac{7+2\sqrt{10}}{3}$$ \newline
+
+\end{tcolorbox}
 
 %==============================================================================
 \begin{thebibliography}{99}
