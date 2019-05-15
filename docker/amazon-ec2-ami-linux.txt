@@ -1,0 +1,25 @@
+Commands to initialise an amazon ec2 ami linux instance and install docker
+
+pull a docker image and start up
+
+also set user permission so that ec2-user can have permissionto start docker    
+
+
+    1  sudo yum update
+    2  sudo yum install docker
+	 3  aws
+    4  aws s3 ls
+    3  sudo service docker start
+    4  sudo usermod -a -G docker ec2-user
+    5  exit
+    6  docker info
+    7  docker pull mikeg64/jupyter-sage
+    8  exit
+    9  sudo yum update
+   10  sudo docker run -p 8080:8080 mikeg64/jupyter-sage
+   11  history
+   12  docker run -p 8888:8888 mikeg64/jupyter-sage
+
+
+
+
