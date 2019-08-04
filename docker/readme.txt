@@ -3,6 +3,9 @@
 #To run the notebook:
 sudo docker run -p 8888:8888 mikeg64/jupyter-sage
 
+#To run the notebook using sage math notebooks in host directory ~/proj/math-tutorial1 mounted on docker directory /home/sage/notebooks in the docker container
+sudo docker run -p 8888:8888 -v ~/proj/math-tutorial1:/home/sage/notebooks mikeg64/jupyter-sage
+
 #Paste sage math server address into browser
 
 To rebuild new image and upload to docker respository
