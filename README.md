@@ -9,4 +9,9 @@ Also see the online examples
 
 [Geo gebra Graphing Calculator](https://www.geogebra.org/graphing?lang=en-GB)
 
+Start mikeg64/jupyter-sage docker container
+docker run -v /Users/mikegriffiths/proj/:/home/sage/notebooks --rm -p 8888:8888 mikeg64/jupyter-sage
+
+
+
 
